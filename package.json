@@ -1,0 +1,30 @@
+{
+    "name": "@visualizevalue/vveb-layer",
+    "version": "0.0.1",
+    "type": "module",
+    "main": "./nuxt.config.ts",
+    "scripts": {
+        "dev": "nuxi dev .playground",
+        "dev:prepare": "nuxt prepare .playground",
+        "build": "nuxt build .playground",
+        "generate": "nuxt generate .playground",
+        "preview": "nuxt preview .playground",
+        "postinstall": "nuxt prepare"
+    },
+    "dependencies": {
+        "@csstools/postcss-global-data": "^3.0.0",
+        "@headlessui/vue": "^1.7.23",
+        "@vueuse/components": "^12.0.0",
+        "@vueuse/nuxt": "13.0.0",
+        "luxon": "^3.5.0",
+        "postcss-custom-media": "^11.0.5",
+        "postcss-custom-selectors": "^8.0.4",
+        "postcss-mixins": "^11.0.3",
+        "postcss-nested": "^7.0.2",
+        "postcss-preset-env": "^10.1.1"
+    },
+    "devDependencies": {
+        "nuxt": "^3.16.0"
+    },
+    "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
+}

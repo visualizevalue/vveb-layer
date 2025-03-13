@@ -1,0 +1,9 @@
+:root {
+
+  --z-index-n1:      -1;
+  --z-index-0:        0;
+  --z-index-ui:       2;
+  --z-index-overlay:  9;
+  --z-index-dialog:  10;
+
+}

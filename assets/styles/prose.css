@@ -1,0 +1,47 @@
+/* MINIMAL PROSE */
+.prose {
+  h1, h2, h3 {
+    width: 100%;
+    position: relative;
+    margin: var(--spacer) 0;
+    color: var(--color);
+  }
+
+  h1 {
+    font-size: var(--font-xl);
+  }
+
+  h2, h3 {
+    font-size: var(--font-lg);
+  }
+
+  > table {
+    margin: var(--spacer) 0;
+
+    th,
+    td {
+      padding: calc(var(--spacer-sm) - var(--spacer-xs)) var(--spacer-sm);
+      border: var(--border);
+    }
+  }
+
+  > * {
+    margin: var(--spacer-sm) 0;
+    color: var(--color);
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* GENERAL HINT RULES */
+p {
+  a {
+    text-decoration: underline;
+  }
+}
