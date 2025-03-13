@@ -1,6 +1,6 @@
 {
     "name": "@visualizevalue/vveb-layer",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "type": "module",
     "main": "./nuxt.config.ts",
     "scripts": {
@@ -8,7 +8,7 @@
         "dev:prepare": "nuxt prepare .playground",
         "build": "nuxt build .playground",
         "generate": "nuxt generate .playground",
-        "postinstall": "nuxt prepare",
+        "prepare": "nuxt prepare",
         "preview": "nuxt preview .playground"
     },
     "devDependencies": {
