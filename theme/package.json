@@ -1,5 +1,5 @@
 {
-    "name": "@visualizevalue/vveb-layer-vv",
+    "name": "@visualizevalue/vveb-layer-theme",
     "type": "module",
     "main": "./nuxt.config.ts",
     "scripts": {
