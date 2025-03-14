@@ -4,7 +4,6 @@
       <NuxtPage />
     </NuxtLayout>
 
-    <FooterNav />
     <ToggleDarkMode />
   </div>
 </template>

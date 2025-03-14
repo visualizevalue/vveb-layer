@@ -4,7 +4,7 @@ import { dirname, join } from 'path'
 const currentDir = dirname(fileURLToPath(import.meta.url))
 
 export default defineNuxtConfig({
-  extends: `@visualizevalue/vveb-layer-base`,
+  extends: `../base/nuxt.config.ts`,
 
   alias: {
     '@base': '@visualizevalue/vveb-layer-base',
