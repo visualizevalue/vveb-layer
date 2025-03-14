@@ -1,16 +1,18 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-export default defineNuxtConfig({
-  ssr: false,
-  devtools: false,
+import { fileURLToPath } from 'url'
+import { dirname, join } from 'path'
 
-  extends: `@visualizevalue/mint-app-base`,
- 
+const currentDir = dirname(fileURLToPath(import.meta.url))
+
+export default defineNuxtConfig({
+  extends: `@visualizevalue/vveb-layer-base`,
+
   alias: {
-    '@base': '@visualizevalue/mint-app-base',
+    '@base': '@visualizevalue/vveb-layer-base',
   },
 
   css: [
-    '~/assets/theme.css',
+    '@base/assets/styles/index.css',
+    join(currentDir, './assets/theme.css'),
   ],
 
   compatibilityDate: '2024-08-14'
