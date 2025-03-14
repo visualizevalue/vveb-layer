@@ -44,6 +44,9 @@ importers:
 
   theme:
     devDependencies:
+      '@visualizevalue/vveb-layer-base':
+        specifier: workspace:^
+        version: link:../base
       feather-icons:
         specifier: ^4.29.2
         version: 4.29.2
