@@ -10,7 +10,7 @@
         "prepare": "nuxt prepare",
         "preview": "nuxt preview .playground"
     },
-    "devDependencies": {
+    "dependencies": {
       "@visualizevalue/vveb-layer-base": "workspace:^",
       "feather-icons": "^4.29.2",
       "nuxt": "^3.16.0",
