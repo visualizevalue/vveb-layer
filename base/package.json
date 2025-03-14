@@ -11,7 +11,7 @@
         "prepare": "nuxt prepare",
         "preview": "nuxt preview .playground"
     },
-    "dependencies": {
+    "devDependencies": {
         "@csstools/postcss-global-data": "^3.0.0",
         "@headlessui/vue": "^1.7.23",
         "@vueuse/components": "^12.0.0",
