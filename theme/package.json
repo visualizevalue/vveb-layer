@@ -12,7 +12,6 @@
         "preview": "nuxt preview .playground"
     },
     "devDependencies": {
-      "@visualizevalue/vveb-layer-base": "@visualizevalue/vveb-layer-base@latest",
       "feather-icons": "^4.29.2",
       "nuxt": "^3.16.0",
       "vue-feather": "^2.0.0"

@@ -44,9 +44,6 @@ importers:
 
   theme:
     devDependencies:
-      '@visualizevalue/vveb-layer-base':
-        specifier: ^0.0.1
-        version: 0.0.1
       feather-icons:
         specifier: ^4.29.2
         version: 4.29.2
@@ -1123,9 +1120,6 @@ packages:
     resolution: {integrity: sha512-A/Si4mrTkQqJ6EXJKv5EYCDQ3NL6nJXxG8VGXePsaiQigsomHYQC9xSpX8qGk7AEZk4b1ssbYIqJ0ISQQ7bfcA==}
     engines: {node: '>=18'}
     hasBin: true
-
-  '@visualizevalue/vveb-layer-base@0.0.1':
-    resolution: {integrity: sha512-SJDAlhLJ4jFrEcCEz5ibbjsTGGP2tmJotngnV4hup4E0SRKbP8TI+cXeOeuIb4tmb/LKSb6JQ/MKry0BdDomDA==}
 
   '@vitejs/plugin-vue-jsx@4.1.1':
     resolution: {integrity: sha512-uMJqv/7u1zz/9NbWAD3XdjaY20tKTf17XVfQ9zq4wY1BjsB/PjpJPMe2xiG39QpP4ZdhYNhm4Hvo66uJrykNLA==}
@@ -4670,8 +4664,6 @@ snapshots:
       - encoding
       - rollup
       - supports-color
-
-  '@visualizevalue/vveb-layer-base@0.0.1': {}
 
   '@vitejs/plugin-vue-jsx@4.1.1(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(sugarss@4.0.1(postcss@8.5.3))(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.8.2))':
     dependencies:
