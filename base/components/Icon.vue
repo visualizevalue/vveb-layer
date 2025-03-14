@@ -1,15 +1,13 @@
 <template>
-  <i v-if="ICONS[type]" class="icon">
+  <i v-if="symbol" class="icon">
     {{ symbol }}
   </i>
 </template>
 
-<script setup>
-const props = defineProps({
-  type: String,
-})
+<script setup lang="ts">
+const props = defineProps<{ type: string }>()
 
-const ICONS = {
+const ICONS: { [key: string]: string } = {
   'add': '➕',
   'check': '☑️',
   'chevron-down': '⬇️',
