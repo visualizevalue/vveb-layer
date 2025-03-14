@@ -1,6 +1,9 @@
 :root {
 
   --dialog-width: 27rem;
+  --content-width-wide: 90rem;
+  --content-width: 60rem;
+  --content-width-sm: 35rem;
 
 }
 

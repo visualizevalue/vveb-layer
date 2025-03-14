@@ -16,6 +16,7 @@
   --spacer-xs: var(--size-0);
   --spacer-sm: var(--size-2);
   --spacer: var(--size-4);
+  --spacer-md: var(--size-6);
   --spacer-lg: var(--size-7);
   --spacer-xl: var(--size-9);
 

@@ -9,6 +9,8 @@ export default defineNuxtConfig({
   },
 
   css: [
+    '@fontsource-variable/dm-sans',
+    '@fontsource-variable/dm-sans/wght-italic.css',
     '@base/assets/styles/index.css',
     join(currentDir, './assets/theme.css'),
   ],

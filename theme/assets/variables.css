@@ -41,9 +41,8 @@
   * FONTS
   */
   --font-family:    'DM Sans Variable', sans-serif;
-  --font-base:      14px;
+  --font-base:      16px;
   --font-weight:    400;
-  --font-lg:        calc(var(--font-base) * 1.618);
   --text-transform: none;
 
   /*
