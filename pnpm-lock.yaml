@@ -6,10 +6,8 @@ settings:
 
 importers:
 
-  .: {}
-
   base:
-    dependencies:
+    devDependencies:
       '@csstools/postcss-global-data':
         specifier: ^3.0.0
         version: 3.0.0(postcss@8.5.3)
@@ -45,7 +43,7 @@ importers:
         version: 10.1.5(postcss@8.5.3)
 
   theme:
-    dependencies:
+    devDependencies:
       '@visualizevalue/vveb-layer-base':
         specifier: workspace:^
         version: link:../base
