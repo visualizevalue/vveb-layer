@@ -40,17 +40,19 @@
   /*
   * FONTS
   */
-  --font-family:    Carbon, monospace;
+  --font-family:    'DM Sans Variable', sans-serif;
   --font-base:      14px;
+  --font-weight:    400;
   --font-lg:        calc(var(--font-base) * 1.618);
-  --text-transform: uppercase;
+  --text-transform: none;
 
   /*
   * UI ELEMENTS
   */
-  --ui-font-size: 14px;
+  --ui-font-family: Carbon, monospace;
+  --ui-font-size:   14px;
   --ui-text-transform: uppercase;
-  --ui-font-weight: 500;
+  --ui-font-weight: 400;
 
   /*
   * BORDERS

@@ -1,6 +1,6 @@
 {
     "name": "@visualizevalue/vveb-layer-theme",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "type": "module",
     "main": "./nuxt.config.ts",
     "scripts": {
@@ -12,6 +12,7 @@
         "preview": "nuxt preview .playground"
     },
     "dependencies": {
+        "@fontsource-variable/dm-sans": "^5.2.5",
         "@visualizevalue/vveb-layer-base": "workspace:^",
         "feather-icons": "^4.29.2",
         "nuxt": "^3.16.0",
