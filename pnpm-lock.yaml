@@ -44,7 +44,7 @@ importers:
         specifier: ^10.1.1
         version: 10.1.5(postcss@8.5.3)
 
-  vv:
+  theme:
     devDependencies:
       '@visualizevalue/vveb-layer-base':
         specifier: workspace:^
