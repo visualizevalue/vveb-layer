@@ -67,5 +67,7 @@
 
   --card-background-highlight: var(--gray-z-1);
   --card-border-color-highlight: var(--gray-z-3);
+
+  --image-loading-background: var(--gray-z-0);
 }
 

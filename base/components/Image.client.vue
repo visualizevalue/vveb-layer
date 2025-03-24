@@ -110,7 +110,7 @@ article.image {
     background-color: var(--background);
   }
   to {
-    background-color: var(--muted);
+    background-color: var(--image-loading-background);
   }
 }
 </style>
