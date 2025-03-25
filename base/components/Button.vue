@@ -26,6 +26,11 @@ a {
   align-items: center;
 
   gap: calc(var(--ui-padding-x) / 2);
+
+  &.non-interactive,
+  &[disabled]:not([disabled="false"]) {
+    pointer-events: none;
+  }
 }
 button:not(.unstyled),
 a:not(.unstyled) {
@@ -36,10 +41,6 @@ a:not(.unstyled) {
   border: var(--button-border);
   border-radius: var(--button-border-radius);
 
-  &.non-interactive,
-  &[disabled]:not([disabled="false"]) {
-    pointer-events: none;
-  }
   &[disabled]:not([disabled="false"]) {
     color: var(--muted);
   }

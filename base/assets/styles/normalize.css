@@ -222,7 +222,7 @@ Restore the focus styles unset by the previous rule.
 */
 
 :-moz-focusring {
-  outline: 1px dotted ButtonText;
+  outline: none;
 }
 
 /**
@@ -337,8 +337,7 @@ button {
  */
 
 button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
+  outline: none;
 }
 
 fieldset {
