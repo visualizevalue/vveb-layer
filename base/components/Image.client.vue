@@ -3,7 +3,7 @@
     class="image"
     :class="{ loaded }"
     @click="$emit('click')"
-    :style="{ padding: `0 0 ${height}` }"
+    :style="{ padding: `0 0 calc(${height} - 2px)` }"
     v-intersection-observer="loadImage"
   >
     <Loading v-if="! loaded" txt=""/>
@@ -65,7 +65,7 @@ article.image {
   overflow: hidden;
   position: relative;
   height: 0;
-  padding-bottom: 100%;
+  padding-bottom: calc(100% - 2px);
   display: flex;
 
   .loader {
