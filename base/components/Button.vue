@@ -1,6 +1,6 @@
 <template>
-  <NuxtLink v-if="to" :to="to" class="button" :exact="exact" :target="target"><slot /></NuxtLink>
-  <button v-else class="button"><slot /></button>
+  <NuxtLink v-if="to" :to="to" :exact="exact" :target="target"><slot /></NuxtLink>
+  <button v-else><slot /></button>
 </template>
 
 <script setup>
@@ -14,8 +14,9 @@ defineProps({
 })
 </script>
 
-<style>
-.button {
+<style scoped>
+button,
+a {
   position: relative;
   min-width: fit-content;
   width: fit-content;
@@ -23,8 +24,11 @@ defineProps({
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  gap: calc(var(--ui-padding-x) / 2);
 
+  gap: calc(var(--ui-padding-x) / 2);
+}
+button:not(.unstyled),
+a:not(.unstyled) {
   @mixin ui-font;
 
   background: var(--button-background);

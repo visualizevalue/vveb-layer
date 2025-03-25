@@ -1,4 +1,3 @@
-.button,
 button:not(.unstyled),
 input:not(.unstyled),
 textarea:not(.unstyled),
@@ -8,14 +7,12 @@ select:not(.unstyled) {
   width: 100%;
   transition: all var(--speed);
   line-height: var(--ui-line-height);
+  border: var(--border);
   border-radius: var(--button-border-radius);
   background: var(--button-background);
   padding: var(--ui-padding-y) var(--ui-padding-x);
   user-select: none;
-
-  &::placeholder {
-    text-transform: var(--ui-text-transform);
-  }
+  text-transform: var(--ui-text-transform);
 
   &:-internal-autofill-selected {
     background: inherit;
@@ -27,40 +24,18 @@ select:not(.unstyled) {
     border-color: var(--button-border-color-highlight);
     background: var(--button-background-highlight);
   }
-}
 
-.input,
-.textarea,
-.select {
-  position: relative;
-  line-height: 0;
-  width: 100%;
-  background: var(--button-background);
-  padding: var(--ui-padding-y) var(--ui-padding-x);
-  text-transform: none;
-
-  border: var(--border);
-
-  font-weight: var(--font-weight);
-  letter-spacing: var(--letter-spacing-md);
-
-  transition: background var(--speed),
-              padding var(--speed),
-              border var(--speed),
-              color var(--speed);
-
-  &:--highlight {
-    background: var(--background-light);
-    border-color: var(--border-color-light);
-  }
-
-  &::placeholder {
-    color: var(--border-color-light);
+  &::placeholder,
+  &::-ms-input-placeholder {
+    text-transform: var(--ui-text-transform);
+    color: var(--ui-placeholder-color);
     opacity: 1;
   }
-  &::-ms-input-placeholder {
-    color: var(--border-color-light);
-  }
+}
+
+input:not(.unstyled),
+textarea:not(.unstyled) {
+  text-transform: var(--input-text-transform);
 }
 
 .form-item {
@@ -102,8 +77,8 @@ select:not(.unstyled) {
   }
 }
 
-select.select,
-select.select:--highlight {
+select:not(.unstyled),
+select:not(.unstyled):--highlight {
   appearance: none;
   line-height: 1;
   background:

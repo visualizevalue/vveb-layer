@@ -52,6 +52,7 @@
   --ui-font-size:   14px;
   --ui-text-transform: uppercase;
   --ui-font-weight: 400;
+  --ui-placeholder-color: var(--gray-z-5);
 
   /*
   * BORDERS
