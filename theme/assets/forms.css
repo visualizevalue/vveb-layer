@@ -1,0 +1,19 @@
+form.form {
+  display: grid;
+  gap: var(--spacer);
+
+  > header,
+  > footer {
+    display: grid;
+    gap: var(--spacer-sm);
+
+    h1, p {
+      text-align: left;
+    }
+
+    h1 {
+      font-size: var(--font-xl);
+    }
+  }
+}
+
