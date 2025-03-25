@@ -87,5 +87,11 @@ a:not(.unstyled) {
     gap: 0.2em;
     width: min-content;
   }
+
+  &.invisible {
+    position: absolute;
+    left: -200vw;
+    opacity: 0;
+  }
 }
 </style>
