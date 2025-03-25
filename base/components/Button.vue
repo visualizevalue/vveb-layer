@@ -60,6 +60,15 @@ a:not(.unstyled) {
     height: 100%;
   }
 
+  &.small {
+    padding: calc(var(--ui-padding-y)/2) calc(var(--ui-padding-x)/2);
+
+    :deep(.icon) {
+      width: var(--size-3);
+      height: var(--size-3);
+    }
+  }
+
   &.link {
     border: 0;
     background: transparent;
@@ -71,7 +80,7 @@ a:not(.unstyled) {
       color: var(--color);
     }
 
-    .icon {
+    :deep(.icon) {
       align-self: center;
       height: 1em;
     }
