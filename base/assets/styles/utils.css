@@ -1,0 +1,8 @@
+.ui {
+  @mixin ui-font;
+}
+
+.muted {
+  color: var(--muted);
+}
+
