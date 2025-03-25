@@ -7,7 +7,10 @@ const currentDir = dirname(fileURLToPath(import.meta.url))
 export default defineNuxtConfig({
   ssr: process.env.NUXT_SSR !== 'false',
 
-  modules: ['@vueuse/nuxt'],
+  modules: [
+    '@vueuse/nuxt',
+    'reka-ui/nuxt',
+  ],
 
   runtimeConfig: {
     public: {
