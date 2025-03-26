@@ -4,6 +4,7 @@
   background-color: var(--card-background);
   height: 100%;
   padding: var(--spacer);
+  transition: background var(--speed), border-color var(--speed);
 
   &:not(.borderless) {
     border: var(--card-border);
