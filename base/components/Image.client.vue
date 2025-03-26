@@ -3,7 +3,9 @@
     class="image"
     :class="{ loaded }"
     @click="$emit('click')"
-    :style="{ padding: `0 0 calc(${height} - 2px)` }"
+    :style="{
+      aspectRatio: aspectRatio,
+    }"
     v-intersection-observer="loadImage"
   >
     <Loading v-if="! loaded" txt=""/>
@@ -39,7 +41,6 @@ const computeAspectRatio = () => {
   )
 }
 computeAspectRatio()
-const height = computed(() => (1 / aspectRatio.value) * 100 + '%')
 
 const loadImage = ([{ isIntersecting }]) => {
   if (! isIntersecting) return
@@ -64,8 +65,6 @@ article.image {
   background-color: var(--background);
   overflow: hidden;
   position: relative;
-  height: 0;
-  padding-bottom: calc(100% - 2px);
   display: flex;
 
   .loader {
@@ -85,7 +84,6 @@ article.image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-fit: contain;
     transform: scale(1.2);
     width: 100%;
     opacity: 0;
