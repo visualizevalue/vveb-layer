@@ -67,7 +67,7 @@ const sortedItems = computed(() => props.itemSorter ? items.value.sort(props.ite
 const filteredItems = computed(() => props.itemFilter ? sortedItems.value.filter(props.itemFilter) : sortedItems.value)
 const meta = ref({})
 
-const hasMore = computed(() => page.value < meta.value?.last_page)
+const hasMore = computed(() => page.value < meta.value?.lastPage)
 
 const loadMore = async () => {
   loading.value = true
