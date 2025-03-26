@@ -29,6 +29,14 @@
     }
   }
 
+  &.static {
+    background-color: var(--card-background);
+  }
+
+  &.highlight {
+    background-color: var(--card-background-highlight);
+  }
+
   > * {
     width: 100%;
 
