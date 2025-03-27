@@ -136,3 +136,30 @@ label:has(.form-item) {
   }
 }
 
+.prose-input {
+  span {
+    width: 100%;
+  }
+
+  [data-empty] {
+    color: var(--muted);
+  }
+
+  input,
+  textarea,
+  input:--highlight,
+  textarea:--highlight {
+    border: 0;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+    background: inherit;
+    letter-spacing: inherit;
+    min-height: 0;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+}
+
