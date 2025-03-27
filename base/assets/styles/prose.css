@@ -105,9 +105,13 @@
   }
   figure img,
   img {
-    margin: 0 0 0.5em 0;
     border: var(--border);
     border-radius: var(--border-radius);
+  }
+
+  figure:has(img),
+  > img {
+    margin: var(--spacer-md) 0;
   }
 
   /* LISTS */
@@ -198,6 +202,11 @@
     text-align: center;
   }
 
+}
+
+/* GENERAL PROSE RULES */
+.prose-title {
+  font-size: var(--font-xl);
 }
 
 /* GENERAL HINT RULES */
