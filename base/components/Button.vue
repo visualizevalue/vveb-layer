@@ -63,6 +63,7 @@ a {
 
   &.small {
     padding: calc(var(--ui-padding-y)/2) calc(var(--ui-padding-x)/2);
+    min-height: 0;
 
     :deep(.icon) {
       width: var(--size-3);
