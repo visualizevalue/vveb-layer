@@ -42,6 +42,7 @@ onMounted(() => {
     .icon {
       height: var(--size-5);
       width: var(--size-5);
+      color: var(--muted);
       transition: all var(--speed);
     }
 
