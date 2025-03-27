@@ -10,6 +10,7 @@
   padding: 0;
   border: 0;
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   gap: var(--spacer-sm);
 
@@ -17,7 +18,19 @@
     display: none;
   }
 
+  :deep(> label) {
+    @mixin ui-font;
+    display: flex;
+    align-items: center;
+    gap: var(--spacer-sm);
+    white-space: nowrap;
+  }
+
   :deep(.button) {
+    width: auto;
+  }
+
+  :deep(select) {
     width: auto;
   }
 }
