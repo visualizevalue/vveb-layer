@@ -6,5 +6,8 @@
   --button-background-highlight: var(--background);
   --button-border-color-highlight: var(--primary);
 
+  --button-icon-color: var(--muted);
+  --button-icon-color-highlight: var(--primary);
+
 }
 

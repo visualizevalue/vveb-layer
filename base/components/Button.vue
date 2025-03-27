@@ -26,27 +26,14 @@ a {
   align-items: center;
 
   gap: calc(var(--ui-padding-x) / 2);
-
-  &.non-interactive,
-  &[disabled]:not([disabled="false"]) {
-    pointer-events: none;
-  }
-}
-button:not(.unstyled),
-a:not(.unstyled) {
   @mixin ui-font;
 
-  background: var(--button-background);
-  padding: var(--ui-padding-y) var(--ui-padding-x);
-  border: var(--button-border);
-  border-radius: var(--button-border-radius);
-
-  &[disabled]:not([disabled="false"]) {
-    color: var(--muted);
-  }
-
-  &:--highlight {
-    background: var(--button-background-highlight);
+  &:not(.unstyled) {
+    background: var(--button-background);
+    padding: var(--ui-padding-y) var(--ui-padding-x);
+    border: var(--button-border);
+    border-radius: var(--button-border-radius);
+    transition: background var(--speed), border-color var(--speed), color var(--speed);
   }
 
   > span {
@@ -58,6 +45,20 @@ a:not(.unstyled) {
     align-items: center;
     width: 100%;
     height: 100%;
+  }
+
+  :deep(> .icon) {
+    color: var(--button-icon-color);
+    transition: color var(--speed);
+  }
+
+  &:has(> .icon:first-child) {
+    padding-left: calc(var(--ui-padding-x) - var(--size-1));
+  }
+
+  &:has(> .icon:first-child:last-child) {
+    padding: var(--ui-padding-y);
+    aspect-ratio: 1;
   }
 
   &.small {
@@ -74,11 +75,6 @@ a:not(.unstyled) {
     background: transparent;
     line-height: inherit;
     color: var(--muted);
-
-    &:--highlight {
-      background: var(--button-background-highlight);
-      color: var(--color);
-    }
 
     :deep(.icon) {
       align-self: center;
@@ -101,6 +97,35 @@ a:not(.unstyled) {
     position: absolute;
     left: -200vw;
     opacity: 0;
+  }
+
+  &.danger {
+    border-color: var(--error);
+    color: var(--error);
+
+    :deep(.icon) {
+      color: var(--error);
+    }
+  }
+
+  &:--highlight {
+    background: var(--button-background-highlight);
+    border-color: var(--button-border-color-highlight);
+
+    > :deep(.icon) {
+      color: var(--button-icon-color-highlight);
+    }
+
+    &.link {
+      background: var(--button-background-highlight);
+      color: var(--color);
+    }
+  }
+
+  &.non-interactive,
+  &[disabled]:not([disabled="false"]) {
+    color: var(--muted);
+    pointer-events: none;
   }
 }
 </style>

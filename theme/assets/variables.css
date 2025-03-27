@@ -64,6 +64,7 @@
   * COMPONENTS
   */
   --button-background-highlight: var(--gray-z-1);
+  --button-border-color-highlight: var(--gray-z-3);
   --card-border-color-highlight: var(--gray-z-3);
 
   --card-background-highlight: var(--gray-z-1);
