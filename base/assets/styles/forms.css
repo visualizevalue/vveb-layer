@@ -13,6 +13,8 @@ select:not(.unstyled) {
   padding: var(--ui-padding-y) var(--ui-padding-x);
   user-select: none;
   text-transform: var(--ui-text-transform);
+  display: flex;
+  min-height: calc(var(--size-4) + var(--ui-padding-y)*2 + var(--border-width)*2);
 
   &:-internal-autofill-selected {
     background: inherit;
