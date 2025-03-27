@@ -6,3 +6,7 @@
   color: var(--muted);
 }
 
+.font-sm {
+  font-size: var(--font-sm);
+}
+
