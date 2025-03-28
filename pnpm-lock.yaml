@@ -6,6 +6,8 @@ settings:
 
 importers:
 
+  .: {}
+
   base:
     dependencies:
       '@csstools/postcss-global-data':
