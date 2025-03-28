@@ -48,20 +48,10 @@
   a {
     color: var(--primary);
     font-weight: bold;
-    border-bottom: 3px solid transparent;
     transition: all var(--speed);
-
-    &:--highlight {
-      border-color: var(--primary-z-2);
-    }
 
     &.muted {
       color: var(--gray-z-9);
-
-      &:--highlight {
-        color: var(--primary);
-        border-color: var(--gray-z-3);
-      }
     }
   }
   h1, h2, h3, h4, h5, h6 {
