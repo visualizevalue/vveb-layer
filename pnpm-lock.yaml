@@ -4,9 +4,20 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@visualizevalue/vveb-layer-base': link:base
+  '@visualizevalue/vveb-layer-theme': link:theme
+
 importers:
 
-  .: {}
+  .:
+    dependencies:
+      '@visualizevalue/vveb-layer-base':
+        specifier: link:base
+        version: link:base
+      '@visualizevalue/vveb-layer-theme':
+        specifier: link:theme
+        version: link:theme
 
   base:
     dependencies:
@@ -57,7 +68,7 @@ importers:
         specifier: ^5.2.5
         version: 5.2.5
       '@visualizevalue/vveb-layer-base':
-        specifier: workspace:^
+        specifier: link:../base
         version: link:../base
       feather-icons:
         specifier: ^4.29.2
