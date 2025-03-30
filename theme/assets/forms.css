@@ -7,7 +7,8 @@ form.form {
     display: grid;
     gap: var(--spacer-sm);
 
-    h1, p {
+    h1,
+    p {
       text-align: left;
     }
 
@@ -17,3 +18,23 @@ form.form {
   }
 }
 
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .icon {
+    position: absolute;
+    right: var(--ui-padding-x);
+    width: var(--size-4);
+    color: var(--muted);
+  }
+
+  .input:has(+ .icon) {
+    padding-right: calc(var(--ui-padding-x) + var(--spacer-sm));
+
+    &:--highlight + .icon {
+      color: var(--gray-z-6);
+    }
+  }
+}
