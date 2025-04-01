@@ -4,6 +4,10 @@ import { dirname, join } from 'path'
 const currentDir = dirname(fileURLToPath(import.meta.url))
 
 export default defineNuxtConfig({
+  typescript: {
+    typeCheck: true,
+  },
+
   alias: {
     '@base': '@visualizevalue/vveb-layer-base',
   },
@@ -20,9 +24,8 @@ export default defineNuxtConfig({
       config.optimizeDeps ??= {}
       config.optimizeDeps.include = config.optimizeDeps.include || []
       config.optimizeDeps.include.push('@visualizevalue/vveb-layer-theme > vue-feather')
-    }
+    },
   },
 
-  compatibilityDate: '2024-08-14'
+  compatibilityDate: '2024-08-14',
 })
-
