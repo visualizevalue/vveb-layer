@@ -76,6 +76,9 @@ importers:
       nuxt:
         specifier: ^3.16.0
         version: 3.16.0(@parcel/watcher@2.5.1)(@types/node@22.13.10)(db0@0.3.1)(ioredis@5.6.0)(magicast@0.3.5)(rollup@4.35.0)(sugarss@4.0.1(postcss@8.5.3))(terser@5.39.0)(typescript@5.8.2)(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(sugarss@4.0.1(postcss@8.5.3))(terser@5.39.0)(yaml@2.7.0))(yaml@2.7.0)
+      opepen-standard:
+        specifier: ^1.0.1
+        version: 1.0.1
       vue-feather:
         specifier: ^2.0.0
         version: 2.0.0(feather-icons@4.29.2)(vue@3.5.13(typescript@5.8.2))
@@ -2432,6 +2435,9 @@ packages:
     hasBin: true
     peerDependencies:
       typescript: ^5.x
+
+  opepen-standard@1.0.1:
+    resolution: {integrity: sha512-LwOjM1ziCVnLwz4U819RTmDSh+GGqnXScJJFX39u3ws9M6G1U2Vf3Is72luZmlQnSZlx82LqPhypRpMQnons+A==}
 
   oxc-parser@0.56.5:
     resolution: {integrity: sha512-MNT32sqiTFeSbQZP2WZIRQ/mlIpNNq4sua+/4hBG4qT5aef2iQe+1/BjezZURPlvucZeSfN1Y6b60l7OgBdyUA==}
@@ -6242,6 +6248,8 @@ snapshots:
       supports-color: 9.4.0
       typescript: 5.8.2
       yargs-parser: 21.1.1
+
+  opepen-standard@1.0.1: {}
 
   oxc-parser@0.56.5:
     dependencies:

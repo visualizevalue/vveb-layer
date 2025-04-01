@@ -5,17 +5,18 @@ const currentDir = dirname(fileURLToPath(import.meta.url))
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  typescript: {
+    typeCheck: true,
+  },
+
   ssr: process.env.NUXT_SSR !== 'false',
 
-  modules: [
-    '@vueuse/nuxt',
-    'reka-ui/nuxt',
-  ],
+  modules: ['@vueuse/nuxt', 'reka-ui/nuxt'],
 
   runtimeConfig: {
     public: {
       title: 'VVEB STARTER',
-    }
+    },
   },
 
   app: {
@@ -23,15 +24,11 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
       htmlAttrs: { lang: 'en' },
       title: process.env.NUXT_PUBLIC_TITLE,
-      link: [
-        { rel: 'icon', href: '/icon.svg', type: 'image/svg+xml' },
-      ]
+      link: [{ rel: 'icon', href: '/icon.svg', type: 'image/svg+xml' }],
     },
   },
 
-  css: [
-    join(currentDir, './assets/styles/index.css'),
-  ],
+  css: [join(currentDir, './assets/styles/index.css')],
 
   postcss: {
     plugins: {
@@ -39,7 +36,7 @@ export default defineNuxtConfig({
         files: [
           join(currentDir, './assets/styles/custom-selectors.css'),
           join(currentDir, './assets/styles/custom-media.css'),
-        ]
+        ],
       },
       'postcss-mixins': {
         mixinsDir: join(currentDir, './assets/styles/mixins'),
@@ -51,7 +48,7 @@ export default defineNuxtConfig({
         stage: 3,
         features: {},
       },
-      'autoprefixer': {},
+      autoprefixer: {},
     },
   },
 
@@ -59,8 +56,8 @@ export default defineNuxtConfig({
     preset: 'node-cluster',
     esbuild: {
       options: {
-        target: 'esnext'
-      }
+        target: 'esnext',
+      },
     },
   },
 
@@ -68,11 +65,9 @@ export default defineNuxtConfig({
     presets: [
       {
         from: 'luxon',
-        imports: [
-          'DateTime',
-        ]
-      }
-    ]
+        imports: ['DateTime'],
+      },
+    ],
   },
 
   compatibilityDate: '2024-11-01',
