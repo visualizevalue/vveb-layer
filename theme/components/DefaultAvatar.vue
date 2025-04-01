@@ -21,10 +21,4 @@ const setCanvas = () => {
 watchEffect(() => setCanvas())
 </script>
 
-<style scoped>
-img {
-  border-radius: 50%;
-  border: var(--border);
-  width: 100%;
-}
-</style>
+<style scoped></style>
