@@ -6,7 +6,7 @@
 import { computed, ref } from 'vue'
 import { createIcon } from 'opepen-standard'
 
-const { size = 68, seed = '' } = defineProps<{ size: number; seed: string }>()
+const { size = 68, seed = '' } = defineProps<{ size?: number; seed?: string }>()
 
 const canvas = ref<HTMLCanvasElement>()
 const img = computed(() => canvas.value?.toDataURL())
