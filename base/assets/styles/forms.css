@@ -14,7 +14,7 @@ select:not(.unstyled) {
   user-select: none;
   text-transform: var(--ui-text-transform);
   display: flex;
-  min-height: calc(var(--size-4) + var(--ui-padding-y)*2 + var(--border-width)*2);
+  height: var(--form-item-height);
 
   &:-internal-autofill-selected {
     background: inherit;
@@ -87,12 +87,18 @@ select:not(.unstyled):--highlight {
     url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiM4ODgiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iZmVhdGhlciBmZWF0aGVyLWNoZXZyb24tZG93biI+PHBvbHlsaW5lIHBvaW50cz0iNiA5IDEyIDE1IDE4IDkiPjwvcG9seWxpbmU+PC9zdmc+),
     var(--button-background);
   background-repeat: no-repeat, no-repeat;
-  background-position: calc(100% - var(--size-4)) 50%, 0% 0%;
-  background-size: var(--size-4), 100% 100%;
+  background-position:
+    calc(100% - var(--size-4)) 50%,
+    0% 0%;
+  background-size:
+    var(--size-4),
+    100% 100%;
   padding-right: var(--size-7) !important;
 
   &.small {
-    background-position: calc(100% - var(--size-2)) 50%, 0% 0%;
+    background-position:
+      calc(100% - var(--size-2)) 50%,
+      0% 0%;
   }
 }
 
@@ -162,4 +168,3 @@ label:has(.form-item) {
     }
   }
 }
-
