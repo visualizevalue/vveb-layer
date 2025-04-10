@@ -22,11 +22,11 @@ const props = defineProps({
   query: String,
   metaAccessor: {
     type: Function,
-    default: d => d.meta,
+    default: (d) => d.meta,
   },
   itemsAccessor: {
     type: Function,
-    default: d => d.data,
+    default: (d) => d.data,
   },
   itemSorter: {
     type: Function,
@@ -51,20 +51,25 @@ const props = defineProps({
   },
   classes: String,
   showEmpty: Boolean,
+  credentials: {
+    type: String,
+    default: 'include',
+  },
 })
 
-const {
-  metaAccessor,
-  itemsAccessor,
-} = props
+const { metaAccessor, itemsAccessor } = props
 const refreshKey = computed(() => props.refreshKey)
 const url = computed(() => props.url)
 const query = computed(() => props.query || '')
 const page = ref(0)
 const loading = ref(false)
 const items = ref([])
-const sortedItems = computed(() => props.itemSorter ? items.value.sort(props.itemSorter) : items.value)
-const filteredItems = computed(() => props.itemFilter ? sortedItems.value.filter(props.itemFilter) : sortedItems.value)
+const sortedItems = computed(() =>
+  props.itemSorter ? items.value.sort(props.itemSorter) : items.value,
+)
+const filteredItems = computed(() =>
+  props.itemFilter ? sortedItems.value.filter(props.itemFilter) : sortedItems.value,
+)
 const meta = ref({})
 
 const hasMore = computed(() => page.value < meta.value?.lastPage)
@@ -83,7 +88,7 @@ const loadMore = async () => {
     }
 
     const result = await $fetch(`${url.value}?${queryParams}`, {
-      credentials: 'include'
+      credentials: props.credentials,
     })
 
     meta.value = metaAccessor(result)
@@ -108,10 +113,10 @@ const reset = () => {
 watch([query, url, refreshKey], () => reset())
 
 // Scroll marker autoloading
-function onMarkerVisible ([{ isIntersecting }]) {
-  if (! isIntersecting) return
-  if (! hasMore.value) return
-  if (! props.autoLoad) return
+function onMarkerVisible([{ isIntersecting }]) {
+  if (!isIntersecting) return
+  if (!hasMore.value) return
+  if (!props.autoLoad) return
 
   loadMore()
 }
@@ -142,4 +147,3 @@ aside {
   height: 25vh;
 }
 </style>
-
