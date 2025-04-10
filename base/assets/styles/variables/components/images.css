@@ -1,4 +1,5 @@
 :root {
   --image-loading-background: var(--muted);
+  --image-border: var(--border);
+  --image-border-radius: var(--border-radius);
 }
-

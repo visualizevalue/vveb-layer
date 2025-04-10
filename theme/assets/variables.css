@@ -1,11 +1,10 @@
 :root {
-
   /**
   * GRAY TONES
   * Inspired by the tailwind "Neutral" pallette.
   */
-  --black:    #000;
-  --gray-50:  #fafafa;
+  --black: #000;
+  --gray-50: #fafafa;
   --gray-100: #f5f5f5;
   --gray-200: #e5e5e5;
   --gray-300: #d4d4d4;
@@ -16,10 +15,10 @@
   --gray-800: #262626;
   --gray-900: #171717;
   --gray-950: #0a0a0a;
-  --white:    #fff;
+  --white: #fff;
 
-  --black-semi:    #000000b9;
-  --gray-50-semi:  #fafafab9;
+  --black-semi: #000000b9;
+  --gray-50-semi: #fafafab9;
   --gray-100-semi: #f5f5f5b9;
   --gray-200-semi: #e5e5e5b9;
   --gray-300-semi: #d4d4d4b9;
@@ -30,26 +29,26 @@
   --gray-800-semi: #262626b9;
   --gray-900-semi: #171717b9;
   --gray-950-semi: #0a0a0ab9;
-  --white-semi:    #ffffffb9;
+  --white-semi: #ffffffb9;
 
   /**
   * COLORS
   */
-  --primary:  var(--color);
+  --primary: var(--color);
 
   /*
   * FONTS
   */
-  --font-family:    'DM Sans Variable', sans-serif;
-  --font-base:      16px;
-  --font-weight:    400;
+  --font-family: 'DM Sans Variable', sans-serif;
+  --font-base: 16px;
+  --font-weight: 400;
   --text-transform: none;
 
   /*
   * UI ELEMENTS
   */
   --ui-font-family: Carbon, monospace;
-  --ui-font-size:   14px;
+  --ui-font-size: 14px;
   --ui-text-transform: uppercase;
   --ui-font-weight: 400;
   --ui-placeholder-color: var(--gray-z-5);
@@ -71,5 +70,5 @@
   --card-border-color-highlight: var(--gray-z-3);
 
   --image-loading-background: var(--gray-z-0);
+  --image-border-radius: var(--size-1);
 }
-
