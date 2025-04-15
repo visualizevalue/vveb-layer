@@ -33,7 +33,10 @@ a {
     padding: var(--ui-padding-y) var(--ui-padding-x);
     border: var(--button-border);
     border-radius: var(--button-border-radius);
-    transition: background var(--speed), border-color var(--speed), color var(--speed);
+    transition:
+      background var(--speed),
+      border-color var(--speed),
+      color var(--speed);
   }
 
   > span {
@@ -54,15 +57,23 @@ a {
 
   &:has(> .icon:first-child) {
     padding-left: calc(var(--ui-padding-x) - var(--size-1));
+
+    &.small {
+      padding-left: calc(var(--ui-padding-x) / 2 - var(--size-1));
+    }
   }
 
   &:has(> .icon:first-child:last-child) {
     padding: var(--ui-padding-y);
     aspect-ratio: 1;
+
+    &.small {
+      padding: calc(var(--ui-padding-y) / 2);
+    }
   }
 
   &.small {
-    padding: calc(var(--ui-padding-y)/2) calc(var(--ui-padding-x)/2);
+    padding: calc(var(--ui-padding-y) / 2) calc(var(--ui-padding-x) / 2);
     min-height: 0;
 
     :deep(.icon) {
@@ -124,7 +135,7 @@ a {
   }
 
   &.non-interactive,
-  &[disabled]:not([disabled="false"]) {
+  &[disabled]:not([disabled='false']) {
     color: var(--muted);
     pointer-events: none;
   }

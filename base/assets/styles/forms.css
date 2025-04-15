@@ -33,6 +33,11 @@ select:not(.unstyled) {
     color: var(--ui-placeholder-color);
     opacity: 1;
   }
+
+  &.small {
+    padding: calc(var(--ui-padding-y) / 2) calc(var(--ui-padding-x) / 2);
+    height: var(--form-item-height-sm);
+  }
 }
 
 input:not(.unstyled),

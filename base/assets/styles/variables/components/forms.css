@@ -1,4 +1,5 @@
 :root {
   --form-item-height: calc(var(--size-4) + var(--ui-padding-y) * 2 + var(--border-width) * 2);
+  --form-item-height-sm: calc(var(--size-4) + var(--ui-padding-y) + var(--border-width) * 2);
   --input-text-transform: none;
 }
