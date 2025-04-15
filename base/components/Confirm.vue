@@ -3,10 +3,7 @@
     <Button @click="open = true">Trigger</Button>
   </slot>
 
-  <Dialog
-    v-model:open="open"
-    class="confirm-modal"
-  >
+  <Dialog v-model:open="open" class="confirm-modal">
     <h1>{{ title }}</h1>
     <p v-if="description">{{ description }}</p>
 
@@ -28,9 +25,9 @@ const {
   cancel = 'Cancel',
   confirm = 'Confirm',
 } = defineProps<{
-  title: string,
-  description?: string,
-  cancel?: string,
+  title: string
+  description?: string
+  cancel?: string
   confirm?: string
 }>()
 </script>
@@ -38,5 +35,9 @@ const {
 <style>
 .confirm-modal {
   padding: var(--spacer-lg);
+
+  .actions {
+    margin-top: var(--spacer-lg);
+  }
 }
 </style>
