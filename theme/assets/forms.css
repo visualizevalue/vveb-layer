@@ -23,18 +23,32 @@ form.form {
   display: flex;
   align-items: center;
 
-  .icon {
+  input + .icon {
     position: absolute;
     right: var(--ui-padding-x);
     width: var(--size-4);
     color: var(--muted);
   }
 
-  .input:has(+ .icon) {
+  input:has(+ .icon) {
     padding-right: calc(var(--ui-padding-x) + var(--spacer-sm));
 
     &:--highlight + .icon {
       color: var(--gray-z-6);
+    }
+  }
+
+  input,
+  button {
+    z-index: 1;
+
+    + input,
+    + button {
+      margin-left: calc(-1 * var(--border-width));
+    }
+
+    &:--highlight {
+      z-index: 2;
     }
   }
 }
