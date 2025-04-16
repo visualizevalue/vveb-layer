@@ -10,3 +10,10 @@
   font-size: var(--font-sm);
 }
 
+.visible-md {
+  display: none;
+
+  @media (--md) {
+    display: initial;
+  }
+}
