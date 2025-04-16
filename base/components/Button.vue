@@ -59,7 +59,7 @@ a {
     padding-left: calc(var(--ui-padding-x) - var(--size-1));
 
     &.small {
-      padding-left: calc(var(--ui-padding-x) / 2 - var(--size-1));
+      padding-left: calc(var(--ui-padding-x) / 2);
     }
   }
 
