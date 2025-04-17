@@ -11,9 +11,9 @@
 }
 
 .visible-md {
-  display: none;
+  display: none !important;
 
   @media (--md) {
-    display: initial;
+    display: initial !important;
   }
 }
