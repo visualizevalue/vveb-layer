@@ -2,7 +2,7 @@
 .prose {
   /* SPACING */
   > * {
-    margin: var(--spacer-md) 0;
+    margin: var(--spacer) 0;
     color: var(--color);
 
     &:first-child {
@@ -15,7 +15,12 @@
   }
 
   /* HEADINGS */
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     width: 100%;
     position: relative;
     margin: var(--spacer) 0;
@@ -26,7 +31,12 @@
     font-size: var(--font-xl);
   }
 
-  h2, h3, h4, h5, h6, .lead {
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .lead {
     font-size: var(--font-lg);
   }
 
@@ -54,7 +64,12 @@
       color: var(--gray-z-9);
     }
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     > a {
       color: inherit;
       border-bottom: none;
@@ -80,7 +95,7 @@
       margin: 1em 0 0;
 
       &:before {
-        content: "–";
+        content: '–';
         margin-right: 0.5em;
       }
     }
@@ -93,10 +108,11 @@
     line-height: var(--line-height-sm);
     color: var(--gray-z-7);
   }
-  figure img,
-  img {
-    border: var(--border);
-    border-radius: var(--border-radius);
+  figure > img,
+  p > img,
+  > img {
+    border: var(--image-border);
+    border-radius: var(--image-border-radius);
   }
 
   figure:has(img),
@@ -105,7 +121,9 @@
   }
 
   /* LISTS */
-  ol { list-style: auto; }
+  ol {
+    list-style: auto;
+  }
   ul {
     list-style: none;
 
@@ -114,7 +132,7 @@
     }
 
     > li:before {
-      content: "\2022";
+      content: '\2022';
       position: absolute;
       color: var(--gray-z-5);
       font-weight: bold;
@@ -123,14 +141,16 @@
       margin-left: -1em;
     }
   }
-  ul, ol {
+  ul,
+  ol {
     padding-left: 1em;
 
     li {
       margin: 0.25em 0;
     }
 
-    ul, ol {
+    ul,
+    ol {
       margin: 0;
 
       li {
@@ -156,7 +176,7 @@
     font-size: var(--font-sm);
     color: var(--gray-z-7);
     border-top: var(--border);
-    margin-top: calc(2*var(--size-5));
+    margin-top: calc(2 * var(--size-5));
     padding-top: var(--size-5);
   }
 
@@ -184,14 +204,21 @@
 
   /* SPACE */
   > *:first-child,
-  > *:first-child > * { margin-top: 0; }
+  > *:first-child > * {
+    margin-top: 0;
+  }
   > *:last-child,
-  > *:last-child > * { margin-bottom: 0; }
+  > *:last-child > * {
+    margin-bottom: 0;
+  }
 
   &.centered {
     text-align: center;
   }
 
+  iframe {
+    max-width: 100%;
+  }
 }
 
 /* GENERAL PROSE RULES */
@@ -205,4 +232,3 @@ p {
     text-decoration: underline;
   }
 }
-
