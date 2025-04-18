@@ -1,4 +1,5 @@
 .actions {
-  justify-content: flex-end;
+  &:not(.left) {
+    justify-content: flex-end;
+  }
 }
-
