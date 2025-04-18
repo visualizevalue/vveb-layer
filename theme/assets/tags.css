@@ -1,0 +1,21 @@
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacer-sm);
+
+  .tag {
+    border: var(--border);
+    @mixin ui-font;
+    font-size: var(--font-sm);
+    display: flex;
+    align-items: center;
+
+    span {
+      padding: var(--spacer-xs) var(--spacer-sm);
+
+      + button {
+        margin-left: calc(-1 * var(--spacer-xs));
+      }
+    }
+  }
+}
