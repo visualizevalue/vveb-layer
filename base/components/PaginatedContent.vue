@@ -55,6 +55,10 @@ const props = defineProps({
     type: String,
     default: 'include',
   },
+  headers: {
+    type: Object,
+    default: () => ({}),
+  },
 })
 
 const { metaAccessor, itemsAccessor } = props
@@ -88,6 +92,7 @@ const loadMore = async () => {
     }
 
     const result = await $fetch(`${url.value}?${queryParams}`, {
+      headers: props.headers,
       credentials: props.credentials,
     })
 
