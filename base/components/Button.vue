@@ -30,6 +30,7 @@ a {
 
   &:not(.unstyled) {
     background: var(--button-background);
+    color: var(--button-color);
     padding: var(--ui-padding-y) var(--ui-padding-x);
     border: var(--button-border);
     border-radius: var(--button-border-radius);
@@ -123,6 +124,7 @@ a {
   &:--highlight {
     background: var(--button-background-highlight);
     border-color: var(--button-border-color-highlight);
+    color: var(--button-color-highlight);
 
     > :deep(.icon) {
       color: var(--button-icon-color-highlight);
@@ -136,8 +138,10 @@ a {
 
   &.non-interactive,
   &[disabled]:not([disabled='false']) {
-    color: var(--muted);
     pointer-events: none;
+  }
+  &[disabled]:not([disabled='false']) {
+    color: var(--muted);
   }
 }
 </style>

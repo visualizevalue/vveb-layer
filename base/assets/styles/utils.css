@@ -15,5 +15,12 @@
 
   @media (--md) {
     display: initial !important;
+
+    &.flex {
+      display: flex !important;
+    }
+    &.inline-flex {
+      display: inline-flex !important;
+    }
   }
 }
