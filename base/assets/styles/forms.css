@@ -54,14 +54,14 @@ textarea:not(.unstyled) {
   width: 100%;
   max-width: -webkit-fill-available;
 
-  .input,
-  .textarea,
-  .select {
+  input,
+  textarea,
+  select {
     border: none;
   }
 
-  &:has(.input:hover),
-  &:has(.input:focus) {
+  &:has(input:hover),
+  &:has(input:focus) {
     background: var(--button-background-highlight);
     border-color: var(--button-border-color-highlight);
   }
