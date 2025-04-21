@@ -18,6 +18,15 @@
     display: none;
   }
 
+  :deep(> a),
+  :deep(> button) {
+    height: var(--form-item-height);
+
+    &.small {
+      height: var(--form-item-height-sm);
+    }
+  }
+
   :deep(> label) {
     @mixin ui-font;
     display: flex;
