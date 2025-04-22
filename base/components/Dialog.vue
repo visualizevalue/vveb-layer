@@ -99,7 +99,7 @@ watchEffect(() => (open.value ? show() : hide()))
 .dialog {
   position: fixed;
   padding: calc(var(--spacer) * 2);
-  max-width: min(var(--dialog-width), calc(100vw - var(--spacer * 2)));
+  max-width: min(var(--dialog-width), calc(100vw - var(--spacer) * 2));
   width: 100%;
   background: var(--background);
   color: var(--color);
