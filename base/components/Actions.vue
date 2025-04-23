@@ -20,7 +20,8 @@
 
   :deep(> a),
   :deep(> button),
-  :deep(> .input-group) {
+  :deep(> .input-group),
+  :deep(> .input-group > *) {
     height: var(--form-item-height);
 
     &.small {
