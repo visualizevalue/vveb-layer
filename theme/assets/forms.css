@@ -43,9 +43,17 @@ form.form {
   button {
     z-index: 1;
 
+    &:has(+ input),
+    &:has(+ button) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
     + input,
     + button {
       margin-left: calc(-1 * var(--border-width));
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
 
     &:--highlight {
