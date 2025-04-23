@@ -40,17 +40,20 @@ form.form {
   }
 
   input,
-  button {
+  button,
+  a {
     z-index: 1;
 
     &:has(+ input),
-    &:has(+ button) {
+    &:has(+ button),
+    &:has(+ a) {
       border-top-right-radius: 0 !important;
       border-bottom-right-radius: 0 !important;
     }
 
     + input,
-    + button {
+    + button,
+    + a {
       margin-left: calc(-1 * var(--border-width));
       border-top-left-radius: 0 !important;
       border-bottom-left-radius: 0 !important;
