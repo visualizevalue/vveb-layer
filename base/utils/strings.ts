@@ -13,7 +13,7 @@ export const pluralize = (word: string, count: number): string => {
 }
 
 // Remove HTML from strings
-export const cleanText = (str: string) => str?.replace(/<[^>]*>?/gm, '').trim() || ''
+export const cleanText = (str: string) => str?.replace(/<[^>]*>?/gm, ' ').replace(/\s+/g, ' ').trim() || ''
 
 // Shorten + sanitize text
 export const shortenedCleanText = (str: string, length: number = 80) => {
