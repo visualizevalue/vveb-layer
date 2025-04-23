@@ -10,6 +10,21 @@
   font-size: var(--font-sm);
 }
 
+.visible-sm {
+  display: none !important;
+
+  @media (--sm) {
+    display: initial !important;
+
+    &.flex {
+      display: flex !important;
+    }
+    &.inline-flex {
+      display: inline-flex !important;
+    }
+  }
+}
+
 .visible-md {
   display: none !important;
 
