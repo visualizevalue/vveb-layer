@@ -45,15 +45,15 @@ form.form {
 
     &:has(+ input),
     &:has(+ button) {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+      border-top-right-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
     }
 
     + input,
     + button {
       margin-left: calc(-1 * var(--border-width));
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
     }
 
     &:--highlight {
