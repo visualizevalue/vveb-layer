@@ -1,77 +1,90 @@
 <template>
   <article
     class="image"
+    data-allow-mismatch="class"
     :class="{ loaded }"
-    @click="$emit('click')"
     :style="{
-      aspectRatio: aspectRatio,
+      aspectRatio: computedAspectRatio,
     }"
-    v-intersection-observer="loadImage"
+    v-intersection-observer="([observer]) => loadImage(observer?.isIntersecting || false)"
   >
-    <Loading v-if="!loaded" txt="" />
-    <img v-if="uri" ref="imageEl" :alt="alt" :src="uri" @load="imageLoaded" />
+    <img
+      ref="image-el"
+      :alt="alt"
+      :src="src"
+      @load="imageLoaded"
+      loading="lazy"
+      decoding="async"
+    />
   </article>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { vIntersectionObserver } from '@vueuse/components'
 
-const props = defineProps({
-  src: String,
-  alt: String,
-  aspectRatio: Number,
-})
-const emit = defineEmits(['click', 'loaded'])
+const { src, alt, aspectRatio } = defineProps<{
+  src: string
+  alt: string
+  aspectRatio?: number
+}>()
+const emit = defineEmits(['loaded'])
 
-const uri = ref('')
-const loaded = ref(false)
-const imageEl = ref(null)
-const aspectRatio = ref(1)
+const uri = ref(import.meta.server ? src : '')
+const loaded = ref(import.meta.server)
+const imageEl = useTemplateRef('image-el')
+
+const computedAspectRatio = ref(1)
 const computeAspectRatio = () => {
-  aspectRatio.value =
-    props.aspectRatio || // The passed aspect ratio
-    imageEl.value?.naturalWidth / (imageEl.value?.naturalHeight || 1) || // The natural image element ratio
+  computedAspectRatio.value =
+    aspectRatio || // The passed aspect ratio
+    (imageEl.value?.naturalWidth || 1) / (imageEl.value?.naturalHeight || 1) || // The natural image element ratio
     1 // The default square ratio
 }
 computeAspectRatio()
 
-const loadImage = ([{ isIntersecting }]) => {
-  if (!isIntersecting) return
-
-  if (!props.src) return
-
-  uri.value = props.src
+const loadImage = (isVisible: boolean) => {
+  if (isVisible) {
+    uri.value = src
+  } else {
+    uri.value = ''
+  }
 }
-watch(
-  () => props.src,
-  () => loadImage([{ isIntersecting: true }]),
-)
-
-// Image loaded event
 const imageLoaded = () => {
   loaded.value = true
   emit('loaded')
   computeAspectRatio()
 }
+
+watch(
+  () => src,
+  () => loadImage(true),
+)
+if (import.meta.server) {
+  loadImage(true)
+  imageLoaded()
+}
 </script>
 
 <style scoped>
+@keyframes image {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 article.image {
   overflow: hidden;
-  background-color: var(--background);
+  background-color: var(--gray-z-0);
   overflow: hidden;
   position: relative;
   display: flex;
   border: var(--image-border);
   border-radius: var(--image-border-radius);
-
-  .loader {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
+  opacity: 0;
+  animation: image var(--speed) forwards;
 
   img {
     position: absolute;
@@ -82,20 +95,21 @@ article.image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: scale(1.2);
-    width: 100%;
-    opacity: 0;
     transition: all var(--speed);
   }
 
   &:not(.loaded) {
     animation: imageLoading alternate infinite 1s;
-  }
 
+    img {
+      opacity: 0;
+      transform: scale(1.2);
+    }
+  }
   &.loaded {
     img {
-      transform: scale(1);
       opacity: 1;
+      transform: scale(1);
     }
   }
 }
