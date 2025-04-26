@@ -19,9 +19,9 @@ export const asUTCDate = (date: Date | null) =>
       )
     : null
 
-const now = ref<number>(nowInSeconds())
 let nowInterval: NodeJS.Timeout
 export const useSeconds = () => {
+  const now = useState<number>('now', () => nowInSeconds())
   if (import.meta.client && !nowInterval) {
     nowInterval = setInterval(() => {
       now.value = nowInSeconds()
