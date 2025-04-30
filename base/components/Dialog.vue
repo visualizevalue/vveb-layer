@@ -10,6 +10,7 @@
       <button
         v-if="xClose"
         class="close unstyled"
+        :title="`Close ${title}` || 'Close Dialog'"
         @touchdown="open = false"
         @click="open = false"
       >
@@ -26,6 +27,7 @@
 <script setup>
 const dialog = ref(null)
 const props = defineProps({
+  title: String,
   class: String,
   xClose: Boolean,
   compat: Boolean,

@@ -1,10 +1,5 @@
 <template>
-  <Dialog
-    v-model:open="open"
-    class="modal"
-    :compat="compat"
-    :x-close="xClose"
-  >
+  <Dialog v-model:open="open" class="modal" :title="title" :compat="compat" :x-close="xClose">
     <slot />
   </Dialog>
 </template>
@@ -13,6 +8,7 @@
 const open = defineModel('open', { required: true })
 
 const props = defineProps({
+  title: String,
   compat: Boolean,
   xClose: {
     type: Boolean,
@@ -20,4 +16,3 @@ const props = defineProps({
   },
 })
 </script>
-
