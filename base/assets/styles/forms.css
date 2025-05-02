@@ -1,4 +1,5 @@
 button:not(.unstyled),
+.button:not(.unstyled), /* used for link */
 input:not(.unstyled),
 textarea:not(.unstyled),
 select:not(.unstyled) {

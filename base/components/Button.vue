@@ -1,5 +1,7 @@
 <template>
-  <NuxtLink v-if="to" :to="to" :exact="exact" :target="target"><slot /></NuxtLink>
+  <NuxtLink v-if="to" :to="to" :exact="exact" :target="target" class="button">
+    <slot />
+  </NuxtLink>
   <button v-else><slot /></button>
 </template>
 
@@ -16,7 +18,7 @@ defineProps({
 
 <style scoped>
 button,
-a {
+a.button {
   position: relative;
   min-width: fit-content;
   width: fit-content;
