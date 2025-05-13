@@ -27,6 +27,9 @@ importers:
       '@headlessui/vue':
         specifier: ^1.7.23
         version: 1.7.23(vue@3.5.13(typescript@5.8.2))
+      '@internationalized/date':
+        specifier: ^3.8.0
+        version: 3.8.0
       '@internationalized/number':
         specifier: ^3.6.1
         version: 3.6.1
@@ -58,8 +61,8 @@ importers:
         specifier: ^10.1.1
         version: 10.1.5(postcss@8.5.3)
       reka-ui:
-        specifier: ^2.1.1
-        version: 2.1.1(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2))
+        specifier: ^2.2.1
+        version: 2.2.1(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2))
     devDependencies:
       '@types/luxon':
         specifier: ^3.4.2
@@ -816,8 +819,8 @@ packages:
     peerDependencies:
       vue: ^3.2.0
 
-  '@internationalized/date@3.7.0':
-    resolution: {integrity: sha512-VJ5WS3fcVx0bejE/YHfbDKR/yawZgKqn/if+oEeLqNwBtPzVB06olkfcnojTmEMX+gTpH+FlQ69SHNitJ8/erQ==}
+  '@internationalized/date@3.8.0':
+    resolution: {integrity: sha512-J51AJ0fEL68hE4CwGPa6E0PO6JDaVLd8aln48xFCSy7CZkZc96dGEGmLs2OEEbBxcsVZtfrqkXJwI2/MSG8yKw==}
 
   '@internationalized/number@3.6.1':
     resolution: {integrity: sha512-UVsb4bCwbL944E0SX50CHFtWEeZ2uB5VozZ5yDXJdq6iPZsZO5p+bjVMZh2GxHf4Bs/7xtDCcPwEa2NU9DaG/g==}
@@ -3651,8 +3654,8 @@ packages:
     resolution: {integrity: sha512-DJnGAeenTdpMEH6uAJRK/uiyEIH9WVsUmoLwzudwGJUwZPp80PDBWPHXSAGNPwNvIXAbe7MSUB1zQFugFml66A==}
     engines: {node: '>=4'}
 
-  reka-ui@2.1.1:
-    resolution: {integrity: sha512-awvpQ041LPXAvf2uRVFwedsyz9SwsuoWlRql1fg4XimUCxEI2GOfHo6FIdL44dSPb/eG/gWbdGhoGHLlbX5gPA==}
+  reka-ui@2.2.1:
+    resolution: {integrity: sha512-oLHiyBn6gTIQGnTnv8G5LQuFp9j8HuUNl0qdnW3XPhFb/07hrxzFpjo2kt/jxOZive+n/XWDbOjSj2h9Hih3qA==}
     peerDependencies:
       vue: '>= 3.2.0'
 
@@ -5082,7 +5085,7 @@ snapshots:
       '@tanstack/vue-virtual': 3.13.4(vue@3.5.13(typescript@5.8.2))
       vue: 3.5.13(typescript@5.8.2)
 
-  '@internationalized/date@3.7.0':
+  '@internationalized/date@3.8.0':
     dependencies:
       '@swc/helpers': 0.5.15
 
@@ -8432,11 +8435,11 @@ snapshots:
     dependencies:
       redis-errors: 1.2.0
 
-  reka-ui@2.1.1(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2)):
+  reka-ui@2.2.1(typescript@5.8.2)(vue@3.5.13(typescript@5.8.2)):
     dependencies:
       '@floating-ui/dom': 1.6.13
       '@floating-ui/vue': 1.1.6(vue@3.5.13(typescript@5.8.2))
-      '@internationalized/date': 3.7.0
+      '@internationalized/date': 3.8.0
       '@internationalized/number': 3.6.1
       '@tanstack/vue-virtual': 3.13.4(vue@3.5.13(typescript@5.8.2))
       '@vueuse/core': 12.8.2(typescript@5.8.2)
