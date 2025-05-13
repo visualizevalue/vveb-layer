@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CalendarDate, CalendarDateTime, ZonedDateTime } from '@internationalized/date'
+import { type DateValue } from '@internationalized/date'
 import {
   CalendarCell,
   CalendarCellTrigger,
@@ -18,7 +18,7 @@ import {
 
 const props = defineProps<CalendarRootProps>()
 
-const date = defineModel<CalendarDate | CalendarDateTime | ZonedDateTime>()
+const date = defineModel<DateValue>()
 </script>
 
 <template>
