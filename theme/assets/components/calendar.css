@@ -1,6 +1,7 @@
 .calendar {
   @mixin ui-font;
-  background: var(--gray-z-0);
+  background: var(--background);
+  border: var(--border);
   display: grid;
   gap: var(--spacer-sm);
 
@@ -66,6 +67,7 @@
           color: var(--color);
         }
 
+        &[data-unavailable],
         &[data-outside-view] {
           color: var(--gray-z-4);
         }
