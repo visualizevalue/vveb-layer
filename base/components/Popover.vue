@@ -1,11 +1,6 @@
 <template>
   <Teleport to="body">
-    <div
-      :popover="mode"
-      ref="popover"
-      class="popover"
-      @toggle.stop.prevent="maybeDismiss"
-    >
+    <div :popover="mode" ref="popover" class="popover" @toggle.stop.prevent="maybeDismiss">
       <button v-if="xClose" class="close" @click="dismiss">
         <Icon type="close" />
       </button>
@@ -15,13 +10,13 @@
   </Teleport>
 </template>
 
-<script setup lang="ts">
+<script setup>
 const props = defineProps({
   id: String,
   class: String,
   mode: {
     type: String,
-    default: 'manual'
+    default: 'manual',
   },
   xClose: {
     type: Boolean,
@@ -34,17 +29,17 @@ const popover = ref(null)
 const show = () => popover.value?.showPopover()
 const hide = () => popover.value?.hidePopover()
 
-const dismiss = () => open.value = false
-const maybeDismiss = (e) => e.newState === 'closed' ? dismiss() : null
+const dismiss = () => (open.value = false)
+const maybeDismiss = (e) => (e.newState === 'closed' ? dismiss() : null)
 
 // Keep track of the open/hide state
-watchEffect(() => open.value ? show() : hide())
+watchEffect(() => (open.value ? show() : hide()))
 </script>
 
 <style>
 [popover] {
   position: fixed;
-  padding: calc(var(--spacer)*2);
+  padding: calc(var(--spacer) * 2);
   max-width: var(--dialog-width);
   width: 100%;
   background: var(--background);
@@ -117,4 +112,3 @@ body:has(dialog[open]) {
   overflow: hidden;
 }
 </style>
-
