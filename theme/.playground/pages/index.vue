@@ -10,9 +10,9 @@
 
 <script setup lang="ts">
 import type { CalendarRootProps } from 'reka-ui'
-import { today } from '@internationalized/date'
+import { type DateValue, today } from '@internationalized/date'
 
-const date = ref()
+const date: Ref<DateValue> = ref(markRaw(today('UTC')))
 
 const validUntil = today('UTC')
 const isDateUnavailable: CalendarRootProps['isDateUnavailable'] = (date) => {
