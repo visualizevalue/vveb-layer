@@ -1,5 +1,1 @@
-.actions {
-  &:not(.left) {
-    justify-content: flex-end;
-  }
-}
+@import './components/actions.css';
