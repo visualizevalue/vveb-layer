@@ -1,0 +1,75 @@
+.calendar {
+  @mixin ui-font;
+  background: var(--gray-z-0);
+  display: grid;
+  gap: var(--spacer-sm);
+
+  .header {
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+
+    div {
+      grid-column: 2/7;
+    }
+
+    button {
+      width: 100%;
+      height: var(--size-7);
+    }
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    user-select: none;
+
+    thead {
+      /* background: var(--gray-z-1); */
+    }
+
+    tr {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+    }
+
+    th {
+      height: var(--size-7);
+      color: var(--muted);
+    }
+
+    th,
+    td {
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      > * {
+        width: var(--size-7);
+        height: var(--size-7);
+        color: var(--gray-z-7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all var(--speed);
+
+        &:--highlight,
+        &[data-selected='true'] {
+          background: var(--gray-z-1);
+          color: var(--color);
+        }
+        &[data-selected='true'] {
+          background: var(--gray-z-2);
+          color: var(--color);
+        }
+
+        &[data-outside-view] {
+          color: var(--gray-z-4);
+        }
+      }
+    }
+  }
+}
