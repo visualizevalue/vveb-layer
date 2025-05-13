@@ -13,13 +13,16 @@ import {
   CalendarNext,
   CalendarPrev,
   CalendarRoot,
+  type CalendarRootProps,
 } from 'reka-ui'
+
+const props = defineProps<CalendarRootProps>()
 
 const date = defineModel<CalendarDate | CalendarDateTime | ZonedDateTime>()
 </script>
 
 <template>
-  <CalendarRoot v-slot="{ weekDays, grid }" v-model="date" fixed-weeks class="calendar">
+  <CalendarRoot v-slot="{ weekDays, grid }" v-bind="props" v-model="date" class="calendar">
     <CalendarHeader class="header">
       <CalendarPrev as-child>
         <Button class="small unstyled">
