@@ -22,13 +22,6 @@ table {
     white-space: nowrap;
     padding: var(--size-1) var(--spacer-sm);
 
-    &:first-child {
-      padding-left: 0;
-    }
-    &:last-child {
-      padding-right: 0;
-    }
-
     &.right {
       text-align: right;
     }
@@ -42,4 +35,3 @@ table {
   }
 }
 </style>
-
