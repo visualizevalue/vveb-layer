@@ -131,6 +131,11 @@ form {
   gap: var(--spacer);
 }
 
+.form-group {
+  display: grid;
+  gap: var(--spacer-sm);
+}
+
 form label,
 label.form-label,
 label:has(.form-item) {
@@ -139,12 +144,16 @@ label:has(.form-item) {
   display: grid;
   gap: var(--size-2);
 
-  > span:first-child {
-    display: block;
-  }
-
   &:hover {
     color: var(--color);
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  > span:first-child {
+    display: block;
   }
 }
 
