@@ -5,6 +5,19 @@
     <Calendar v-model="date" :is-date-unavailable="isDateUnavailable" />
 
     <span>{{ date }}</span>
+
+    <hr />
+
+    <form>
+      <input type="checkbox" />
+
+      <hr />
+
+      <label>
+        <input type="checkbox" />
+        <span>Are you sure?</span>
+      </label>
+    </form>
   </article>
 </template>
 

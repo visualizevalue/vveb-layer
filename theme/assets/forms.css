@@ -65,3 +65,17 @@ form.form {
     }
   }
 }
+
+input {
+  &[type='checkbox'] {
+    height: var(--size-4);
+  }
+}
+label:has(> input[type='checkbox']) {
+  display: flex;
+  align-items: center;
+
+  > * {
+    width: auto;
+  }
+}
