@@ -16,7 +16,11 @@ import {
   type CalendarRootProps,
 } from 'reka-ui'
 
-const props = defineProps<CalendarRootProps>()
+const props = defineProps<
+  CalendarRootProps & {
+    highlighted?: string[]
+  }
+>()
 
 const date = defineModel<DateValue>()
 </script>
@@ -48,11 +52,33 @@ const date = defineModel<DateValue>()
             v-for="weekDate in weekDates"
             :key="weekDate.toString()"
             :date="weekDate"
+            class="cell"
           >
             <CalendarCellTrigger :day="weekDate" :month="month.value" />
+            <div
+              v-if="props.highlighted?.includes(weekDate.toString())"
+              class="highlight"
+            ></div>
           </CalendarCell>
         </CalendarGridRow>
       </CalendarGridBody>
     </CalendarGrid>
   </CalendarRoot>
 </template>
+
+<style scoped>
+:deep(.cell) {
+  position: relative;
+}
+
+.highlight {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-2px);
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--gray-z-8);
+}
+</style>

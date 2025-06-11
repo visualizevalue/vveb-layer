@@ -8,6 +8,14 @@
 
     <hr />
 
+    <Calendar
+      v-model="date"
+      :is-date-unavailable="isDateUnavailable"
+      :highlighted="['2025-06-20']"
+    />
+
+    <hr />
+
     <form>
       <input type="checkbox" />
 
