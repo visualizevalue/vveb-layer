@@ -70,6 +70,10 @@
         &[data-unavailable],
         &[data-outside-view] {
           color: var(--gray-z-4);
+
+          + .highlight {
+            background: var(--gray-z-4);
+          }
         }
       }
     }
