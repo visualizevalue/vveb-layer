@@ -73,7 +73,7 @@ const date = defineModel<DateValue>()
 
 .highlight {
   position: absolute;
-  bottom: 2px;
+  bottom: 4px;
   left: 50%;
   transform: translateX(-2px);
   width: 4px;
