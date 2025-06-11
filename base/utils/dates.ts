@@ -1,7 +1,12 @@
 import { DateTime } from 'luxon'
 
 export const formatDate = (date: string) => {
+  return DateTime.fromISO(date).setLocale('en').toLocaleString(DateTime.DATE_MED)
+}
+
+export const formatDateUTC = (date: string) => {
   return DateTime.fromISO(date)
+    .toUTC()
     .setLocale('en')
     .toLocaleString(DateTime.DATE_MED)
 }
@@ -9,7 +14,13 @@ export const formatDate = (date: string) => {
 export const formatDateTime = (date: string) => {
   return DateTime.fromISO(date)
     .setLocale('en-US')
-    .toLocaleString({ year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' })
+    .toLocaleString({
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+    })
 }
 
 export const formatTime = (date: string) => {
@@ -25,4 +36,3 @@ export const timeAgo = (time: string) => {
     ? formatDate(time)
     : date.toRelative({ style: 'short', locale: 'us' })
 }
-
