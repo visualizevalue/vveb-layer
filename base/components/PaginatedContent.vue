@@ -65,6 +65,7 @@ const props = defineProps({
     default: 'down',
   },
 })
+const emit = defineEmits(['loaded'])
 
 const { metaAccessor, itemsAccessor } = props
 const refreshKey = computed(() => props.refreshKey)
@@ -106,6 +107,8 @@ const loadMore = async () => {
     if (newItems?.length) {
       items.value = items.value.concat(itemsAccessor(result))
     }
+
+    emit('loaded', page.value)
   } catch (e) {
     console.log(e)
   }
