@@ -64,6 +64,10 @@ const props = defineProps({
     type: String,
     default: 'down',
   },
+  minLoadDelay: {
+    type: Number,
+    default: 500,
+  },
 })
 const emit = defineEmits(['loaded'])
 
@@ -81,11 +85,21 @@ const filteredItems = computed(() =>
   props.itemFilter ? sortedItems.value.filter(props.itemFilter) : sortedItems.value,
 )
 const meta = ref({})
+const lastLoadTime = ref(0)
 
 const hasMore = computed(() => page.value < meta.value?.lastPage)
 
 const loadMore = async () => {
+  // Check if minimum delay has passed since last load
+  const now = Date.now()
+  const timeSinceLastLoad = now - lastLoadTime.value
+  if (timeSinceLastLoad < props.minLoadDelay) {
+    // Wait for the remaining delay time
+    await delay(props.minLoadDelay - timeSinceLastLoad)
+  }
+
   loading.value = true
+  lastLoadTime.value = Date.now()
 
   try {
     page.value += 1
