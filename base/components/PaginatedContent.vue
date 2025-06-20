@@ -121,8 +121,8 @@ const loadMore = async () => {
     if (newItems?.length) {
       items.value =
         props.scrollDirection === 'up'
-          ? itemsAccessor(result).concat(items.value)
-          : items.value.concat(itemsAccessor(result))
+          ? newItems.concat(items.value)
+          : items.value.concat(newItems)
     }
 
     emit('loaded', page.value)
