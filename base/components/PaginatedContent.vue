@@ -91,7 +91,6 @@ const hasMore = computed(() => page.value < meta.value?.lastPage)
 
 const loadMore = async () => {
   loading.value = true
-  lastLoadTime.value = Date.now()
 
   // Check if minimum delay has passed since last load
   const now = Date.now()
@@ -103,6 +102,7 @@ const loadMore = async () => {
 
   try {
     page.value += 1
+    lastLoadTime.value = Date.now()
 
     let queryParams = query.value.trim()
     if (queryParams) {
