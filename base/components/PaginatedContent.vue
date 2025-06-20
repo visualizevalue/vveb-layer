@@ -119,7 +119,10 @@ const loadMore = async () => {
     meta.value = metaAccessor(result)
     const newItems = itemsAccessor(result)
     if (newItems?.length) {
-      items.value = items.value.concat(itemsAccessor(result))
+      items.value =
+        props.scrollDirection === 'up'
+          ? itemsAccessor(result).concat(items.value)
+          : items.value.concat(itemsAccessor(result))
     }
 
     emit('loaded', page.value)
