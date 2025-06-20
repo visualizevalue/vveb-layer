@@ -7,7 +7,7 @@
     </slot>
 
     <aside
-      v-if="hasMore && autoLoad && !loading"
+      v-if="hasMore && autoLoad && nextLoadReady"
       ref="scrollMarker"
       v-intersection-observer="onMarkerVisible"
       :class="[scrollDirection === 'up' ? 'top' : 'bottom']"
@@ -77,6 +77,7 @@ const url = computed(() => props.url)
 const query = computed(() => props.query || '')
 const page = ref(0)
 const loading = ref(false)
+const nextLoadReady = ref(false)
 const items = ref([])
 const sortedItems = computed(() =>
   props.itemSorter ? items.value.sort(props.itemSorter) : items.value,
@@ -91,6 +92,7 @@ const hasMore = computed(() => page.value < meta.value?.lastPage)
 
 const loadMore = async () => {
   loading.value = true
+  nextLoadReady.value = false
 
   // Check if minimum delay has passed since last load
   const now = Date.now()
@@ -131,6 +133,8 @@ const loadMore = async () => {
   }
 
   loading.value = false
+  await delay(props.minLoadDelay)
+  nextLoadReady.value = true
 }
 
 // Reset everything if the url changes
