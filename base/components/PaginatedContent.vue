@@ -10,6 +10,7 @@
       v-if="hasMore && autoLoad && !loading"
       ref="scrollMarker"
       v-intersection-observer="onMarkerVisible"
+      :class="[scrollDirection === 'up' ? 'top' : 'bottom']"
     ></aside>
   </component>
 </template>
@@ -58,6 +59,10 @@ const props = defineProps({
   headers: {
     type: Object,
     default: () => ({}),
+  },
+  scrollDirection: {
+    type: String,
+    default: 'down',
   },
 })
 
@@ -147,8 +152,14 @@ section {
 
 aside {
   position: absolute;
-  bottom: 0;
   width: 100%;
   height: 25vh;
+
+  &.bottom {
+    bottom: 0;
+  }
+  &.top {
+    top: 0;
+  }
 }
 </style>
