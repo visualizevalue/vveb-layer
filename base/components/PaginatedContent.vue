@@ -90,6 +90,9 @@ const lastLoadTime = ref(0)
 const hasMore = computed(() => page.value < meta.value?.lastPage)
 
 const loadMore = async () => {
+  loading.value = true
+  lastLoadTime.value = Date.now()
+
   // Check if minimum delay has passed since last load
   const now = Date.now()
   const timeSinceLastLoad = now - lastLoadTime.value
@@ -97,9 +100,6 @@ const loadMore = async () => {
     // Wait for the remaining delay time
     await delay(props.minLoadDelay - timeSinceLastLoad)
   }
-
-  loading.value = true
-  lastLoadTime.value = Date.now()
 
   try {
     page.value += 1
