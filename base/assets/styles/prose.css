@@ -25,6 +25,8 @@
     position: relative;
     margin: var(--spacer) 0;
     color: var(--color);
+    font-family: var(--font-family-serif);
+    font-weight: var(--font-weight-bold);
   }
 
   h1 {
@@ -81,6 +83,7 @@
   blockquote {
     padding-left: var(--spacer);
     font-size: var(--font-lg);
+    font-family: var(--font-family-serif);
     line-height: var(--line-height-lg);
     border-left: 4px solid var(--primary);
     font-style: italic;
