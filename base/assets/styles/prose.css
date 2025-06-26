@@ -44,6 +44,7 @@
 
   hr {
     margin: var(--spacer-lg) 0;
+    border-color: var(--gray-z-4);
   }
 
   > table {
