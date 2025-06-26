@@ -40,8 +40,10 @@
   * FONTS
   */
   --font-family: 'IBM Plex Sans', sans-serif;
+  --font-family-serif: 'IBM Plex Serif', serif;
   --font-base: 16px;
   --font-weight: 400;
+  --font-weight-bold: 500;
   --text-transform: none;
 
   /*
