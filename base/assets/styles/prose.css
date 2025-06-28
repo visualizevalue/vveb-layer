@@ -25,7 +25,7 @@
     position: relative;
     margin: var(--spacer) 0;
     color: var(--color);
-    font-family: var(--font-family-serif);
+    font-family: var(--font-family);
     font-weight: var(--font-weight-bold);
   }
 
@@ -84,7 +84,7 @@
   blockquote {
     padding-left: var(--spacer);
     font-size: var(--font-lg);
-    font-family: var(--font-family-serif);
+    font-family: var(--font-family);
     line-height: var(--line-height-lg);
     border-left: 4px solid var(--primary);
     font-style: italic;
