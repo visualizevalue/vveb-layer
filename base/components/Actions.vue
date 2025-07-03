@@ -15,7 +15,7 @@
   gap: var(--spacer-sm);
 
   &:empty {
-    display: none;
+    display: none !important;
   }
 
   :deep(> a),
