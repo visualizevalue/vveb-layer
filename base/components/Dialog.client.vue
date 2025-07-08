@@ -20,7 +20,7 @@
       <slot />
     </component>
 
-    <div v-if="compat" class="overlay" @click="open = false"></div>
+    <div v-if="compat" class="overlay" @click="() => onClickOutside()"></div>
   </Teleport>
 </template>
 
@@ -30,6 +30,10 @@ const props = defineProps({
   title: String,
   class: String,
   xClose: Boolean,
+  clickOutside: {
+    type: Boolean,
+    default: true,
+  },
   compat: Boolean,
 })
 const open = defineModel('open', { required: true })
@@ -91,6 +95,12 @@ const hide = () => {
     }
     animation.play()
   })
+}
+
+const onClickOutside = () => {
+  if (props.clickOutside) {
+    open.value = false
+  }
 }
 
 // Keep track of the open/hide state
