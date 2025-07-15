@@ -157,6 +157,7 @@ function onMarkerVisible([{ isIntersecting }]) {
 
 defineExpose({
   items,
+  filteredItems,
 })
 
 // Load initial data
