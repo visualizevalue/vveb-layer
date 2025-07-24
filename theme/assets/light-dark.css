@@ -53,6 +53,7 @@
   --background: var(--white);
   --color: var(--black);
   --primary: var(--black);
+
   --ui-color: var(--primary);
 
   --gray-z-0: var(--gray-50);
@@ -66,4 +67,14 @@
   --gray-z-8: var(--gray-800);
   --gray-z-9: var(--gray-900);
   --gray-z-10: var(--gray-950);
+
+  --border-color: var(--gray-z-2);
+  --border-color-highlight: var(--gray-z-3);
+  --border: var(--border-width) solid var(--border-color);
+  --border-dark: var(--border-width) solid var(--border-color-dark);
+}
+
+.light,
+.dark {
+  background: var(--background);
 }

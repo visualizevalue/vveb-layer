@@ -12,12 +12,7 @@ export default defineNuxtConfig({
     '@base': '@visualizevalue/vveb-layer-base',
   },
 
-  css: [
-    '@fontsource-variable/dm-sans',
-    '@fontsource-variable/dm-sans/wght-italic.css',
-    '@base/assets/styles/index.css',
-    join(currentDir, './assets/theme.css'),
-  ],
+  css: [join(currentDir, './assets/theme.css'), '@base/assets/styles/index.css'],
 
   hooks: {
     'vite:extendConfig': (config) => {

@@ -1,5 +1,10 @@
 :root {
-  --image-loading-background: var(--muted);
-  --image-border: var(--border);
   --image-border-radius: var(--border-radius);
+}
+
+.light,
+.dark,
+:root {
+  --image-border: var(--border);
+  --image-loading-background: var(--muted);
 }

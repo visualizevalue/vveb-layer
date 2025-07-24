@@ -1,11 +1,12 @@
 :root {
-
-  --backdrop-background-color: transparent;
-
   --dialog-initial-x-offset: 0;
   --dialog-initial-y-offset: var(--spacer);
   --dialog-x-offset: 0;
   --dialog-y-offset: 0;
-
 }
 
+.light,
+.dark,
+:root {
+  --backdrop-background-color: transparent;
+}

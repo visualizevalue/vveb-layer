@@ -8,11 +8,15 @@
 
     <hr />
 
-    <Calendar
-      v-model="date"
-      :is-date-unavailable="isDateUnavailable"
-      :highlighted="['2025-06-20']"
-    />
+    <div class="light">
+      <input type="text" />
+
+      <Calendar
+        v-model="date"
+        :is-date-unavailable="isDateUnavailable"
+        :highlighted="['2025-06-20']"
+      />
+    </div>
 
     <hr />
 
