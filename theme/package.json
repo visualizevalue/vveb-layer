@@ -1,6 +1,6 @@
 {
     "name": "@visualizevalue/vveb-layer-theme",
-    "version": "0.0.44",
+    "version": "0.0.45",
     "type": "module",
     "main": "./nuxt.config.ts",
     "scripts": {
