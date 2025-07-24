@@ -52,6 +52,7 @@
 
   --background: var(--white);
   --color: var(--black);
+  --primary: var(--black);
 
   --gray-z-0: var(--gray-50);
   --gray-z-1: var(--gray-100);
