@@ -3,11 +3,13 @@
   "pnpm": {
     "overrides": {
       "@visualizevalue/vveb-layer-base": "link:base",
-      "@visualizevalue/vveb-layer-theme": "link:theme"
+      "@visualizevalue/vveb-layer-theme": "link:theme",
+      "@visualizevalue/vveb-layer-evm": "link:evm"
     }
   },
   "dependencies": {
     "@visualizevalue/vveb-layer-base": "link:base",
-    "@visualizevalue/vveb-layer-theme": "link:theme"
+    "@visualizevalue/vveb-layer-theme": "link:theme",
+    "@visualizevalue/vveb-layer-evm": "link:evm"
   }
 }

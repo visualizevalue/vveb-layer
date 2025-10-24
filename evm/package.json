@@ -1,0 +1,27 @@
+{
+    "name": "@visualizevalue/vveb-layer-evm",
+    "version": "0.0.1",
+    "type": "module",
+    "main": "./nuxt.config.ts",
+    "scripts": {
+        "build": "nuxt build .playground",
+        "dev": "nuxi dev .playground",
+        "dev:prepare": "nuxt prepare .playground",
+        "generate": "nuxt generate .playground",
+        "prepare": "nuxt prepare",
+        "preview": "nuxt preview .playground",
+        "typecheck": "npx nuxi typecheck"
+    },
+    "dependencies": {
+        "@tanstack/vue-query": "^5.62.3",
+        "@visualizevalue/vveb-layer-base": "workspace:^",
+        "@wagmi/vue": "^0.2.14",
+        "nuxt": "^3.17.0",
+        "viem": "^2.38.4"
+    },
+    "packageManager": "pnpm@10.7.0+sha512.6b865ad4b62a1d9842b61d674a393903b871d9244954f652b8842c2b553c72176b278f64c463e52d40fff8aba385c235c8c9ecf5cc7de4fd78b8bb6d49633ab6",
+    "devDependencies": {
+        "typescript": "^5.8.2",
+        "vue-tsc": "^2.2.8"
+    }
+}

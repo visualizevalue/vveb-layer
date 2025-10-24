@@ -2,10 +2,11 @@
 
 ## Overview
 
-This is a monorepo containing two Nuxt layers for building web applications:
+This is a monorepo containing three Nuxt layers for building web applications:
 
 - `@visualizevalue/vveb-layer-base`: Core UI components and utilities
 - `@visualizevalue/vveb-layer-theme`: Theming layer with VV-specific styling
+- `@visualizevalue/vveb-layer-evm`: EVM/Web3 integration with wallet connection and transaction flows
 
 The layers are designed to be published to NPM and consumed by Nuxt applications via the `extends` configuration.
 
@@ -25,6 +26,9 @@ cd base && pnpm dev
 
 # Theme layer development
 cd theme && pnpm dev
+
+# EVM layer development
+cd evm && pnpm dev
 ```
 
 The playground extends the parent layer, allowing you to test changes in isolation.
@@ -38,9 +42,13 @@ cd base && pnpm build
 # Build theme layer playground
 cd theme && pnpm build
 
+# Build evm layer playground
+cd evm && pnpm build
+
 # Generate static site
 cd base && pnpm generate
 cd theme && pnpm generate
+cd evm && pnpm generate
 ```
 
 ### Type Checking
@@ -51,6 +59,9 @@ cd base && pnpm typecheck
 
 # Type check theme layer
 cd theme && pnpm typecheck
+
+# Type check evm layer
+cd evm && pnpm typecheck
 ```
 
 ### Installing Dependencies
@@ -68,12 +79,13 @@ cd theme && pnpm install
 
 ### Workspace Structure
 
-The root `package.json` defines pnpm workspace overrides that link the two layers:
+The root `package.json` defines pnpm workspace overrides that link the three layers:
 
 - `@visualizevalue/vveb-layer-base` → `link:base`
 - `@visualizevalue/vveb-layer-theme` → `link:theme`
+- `@visualizevalue/vveb-layer-evm` → `link:evm`
 
-The theme layer depends on the base layer via `workspace:^` protocol.
+The theme layer depends on the base layer. The evm layer is standalone but typically used alongside base and theme.
 
 ### Base Layer (`base/`)
 
@@ -143,21 +155,74 @@ export default defineNuxtConfig({
 
 **Component Patterns**: Components in the base layer are generally headless/unstyled or minimally styled, allowing the theme layer to provide visual design.
 
+### EVM Layer (`evm/`)
+
+Provides Web3/EVM integration using modern wagmi and viem:
+
+- **Components** (`components/`):
+  - `Connect.client.vue`: Wallet connection button with multi-wallet modal selector
+  - `Account.client.vue`: Address display with ENS name resolution
+  - `TransactionFlow.vue`: Guided transaction execution with chain checking, confirmation, waiting, and completion states
+- **Composables** (`composables/`):
+  - `useMainChainId()`: Returns the configured main chain ID
+  - `useEnsureChainIdCheck()`: Checks and prompts chain switching if needed
+  - `delay()`: Promise-based delay helper
+- **Utils** (`utils/`):
+  - `shortAddress()`: Ethereum address shortening utility
+- **Plugin** (`plugins/wagmi.ts`): Configures wagmi with:
+  - Wallet connectors (injected, MetaMask, Coinbase, WalletConnect)
+  - Multi-RPC fallback transport
+  - Cookie-based storage for SSR
+  - Chain support (mainnet, sepolia, holesky, localhost)
+
+**Key Configuration** (`evm/nuxt.config.ts`):
+
+- Auto-imports common wagmi/viem functions (`readContract`, `writeContract`, `isAddress`, etc.)
+- Runtime config for chain ID, RPC endpoints, block explorer, WalletConnect project ID
+- Vite optimization for wagmi connectors
+- Nitro preset: `node-cluster`
+
+**Technology Stack**:
+
+- viem 2.37.13 (Ethereum library)
+- @wagmi/vue 0.2.25 (Vue composables for Ethereum)
+- @tanstack/vue-query (for async state management)
+
+**Transaction Flow Pattern**: The `TransactionFlow` component manages the complete transaction lifecycle:
+
+1. **confirm**: Shows transaction details, user can review
+2. **chain**: If on wrong chain, prompts user to switch
+3. **requesting**: Awaiting wallet signature
+4. **waiting**: Transaction submitted, waiting for confirmation
+5. **complete**: Transaction confirmed on-chain
+6. **error**: Error occurred, shown with message
+
+The component uses slots for each step, allowing customization while handling all state transitions and chain validation automatically.
+
 ## Publishing
 
 To publish a layer to NPM:
 
 ```bash
-cd base  # or cd theme
+cd base  # or cd theme, or cd evm
 npm publish --access public
 ```
 
-Consumers add the layer to their `nuxt.config.ts`:
+Consumers add the layer(s) to their `nuxt.config.ts`:
 
 ```ts
 export default defineNuxtConfig({
+  // Base only
   extends: ['@visualizevalue/vveb-layer-base'],
-  // or both:
+
+  // Base + Theme
   extends: ['@visualizevalue/vveb-layer-theme', '@visualizevalue/vveb-layer-base'],
+
+  // All layers (typical for Web3 apps)
+  extends: [
+    '@visualizevalue/vveb-layer-evm',
+    '@visualizevalue/vveb-layer-theme',
+    '@visualizevalue/vveb-layer-base'
+  ],
 })
 ```
