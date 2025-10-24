@@ -22,37 +22,36 @@ watch(isDark, () => {
 })
 
 onMounted(() => {
-  if (! isDark.value) {
+  if (!isDark.value) {
     document.documentElement.classList.add('lightmode')
   }
 })
 </script>
 
 <style scoped>
-  button {
-    position: fixed;
-    bottom: var(--spacer);
-    right: var(--spacer);
+button {
+  position: fixed;
+  bottom: var(--spacer);
+  right: var(--spacer);
+  height: var(--size-5);
+  width: var(--size-5);
+  padding: 0;
+  outline: none;
+  z-index: 200;
+
+  .icon {
     height: var(--size-5);
     width: var(--size-5);
-    padding: 0;
-    outline: none;
-    z-index: 200;
+    color: var(--muted);
+    transition: all var(--speed);
+  }
+
+  &:--highlight {
+    background: transparent;
 
     .icon {
-      height: var(--size-5);
-      width: var(--size-5);
-      color: var(--muted);
-      transition: all var(--speed);
-    }
-
-    &:--highlight {
-      background: transparent;
-
-      .icon {
-        color: var(--gray-z-7);
-      }
+      color: var(--gray-z-7);
     }
   }
+}
 </style>
-

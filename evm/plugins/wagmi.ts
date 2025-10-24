@@ -65,9 +65,9 @@ export default defineNuxtPlugin((nuxtApp) => {
       [mainnet.id]:
         mainChainId == 1
           ? // Use configured transports if we're on mainnet
-          transports
+            transports
           : // Default to viem public rpc if not on mainnet
-          http(),
+            http(),
       [sepolia.id]: transports,
       [holesky.id]: transports,
       [localhost.id]: transports,

@@ -1,4 +1,4 @@
-import type { Address } from "viem"
+import type { Address } from 'viem'
 
 // Shorten an Ethereum address
 export const shortAddress = (address: Address, length: number = 3) =>

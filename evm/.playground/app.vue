@@ -7,7 +7,10 @@
       <Connect>
         <template #connected="{ address }">
           <div class="connected-info">
-            <p>Connected: <Account :address="address" /></p>
+            <p>
+              Connected:
+              <Account :address="address" />
+            </p>
             <Button @click="disconnect">Disconnect</Button>
           </div>
         </template>

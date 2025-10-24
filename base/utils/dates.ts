@@ -5,22 +5,17 @@ export const formatDate = (date: string) => {
 }
 
 export const formatDateUTC = (date: string) => {
-  return DateTime.fromISO(date)
-    .toUTC()
-    .setLocale('en')
-    .toLocaleString(DateTime.DATE_MED)
+  return DateTime.fromISO(date).toUTC().setLocale('en').toLocaleString(DateTime.DATE_MED)
 }
 
 export const formatDateTime = (date: string) => {
-  return DateTime.fromISO(date)
-    .setLocale('en-US')
-    .toLocaleString({
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-    })
+  return DateTime.fromISO(date).setLocale('en-US').toLocaleString({
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+  })
 }
 
 export const formatTime = (date: string) => {

@@ -7,4 +7,3 @@
     <ToggleDarkMode />
   </div>
 </template>
-

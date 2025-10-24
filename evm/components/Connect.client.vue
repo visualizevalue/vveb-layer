@@ -9,10 +9,17 @@
   <Teleport to="body">
     <Modal v-if="showConnect" v-model:open="chooseModalOpen">
       <div class="wallet-options">
-        <Button v-for="connector in shownConnectors" :key="connector.uid" @click="() => login(connector)"
-          class="choose-connector-button">
-          <img v-if="ICONS[connector.name]" :src="connector.icon || `${base}icons/wallets/${ICONS[connector.name]}`"
-            :alt="connector.name" />
+        <Button
+          v-for="connector in shownConnectors"
+          :key="connector.uid"
+          @click="() => login(connector)"
+          class="choose-connector-button"
+        >
+          <img
+            v-if="ICONS[connector.name]"
+            :src="connector.icon || `${base}icons/wallets/${ICONS[connector.name]}`"
+            :alt="connector.name"
+          />
           {{ connector.name }}
         </Button>
       </div>

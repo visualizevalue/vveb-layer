@@ -67,7 +67,7 @@ NUXT_PUBLIC_WALLET_CONNECT_PROJECT_ID="your-project-id"
     :text="{
       title: { confirm: 'Confirm Mint' },
       lead: { confirm: 'This will mint a new NFT.' },
-      action: { confirm: 'Mint' }
+      action: { confirm: 'Mint' },
     }"
     @complete="onComplete"
   >

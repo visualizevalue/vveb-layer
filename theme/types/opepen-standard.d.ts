@@ -7,37 +7,37 @@ declare module 'opepen-standard' {
      * The size of the icon in pixels
      * @default 8
      */
-    size?: number;
+    size?: number
 
     /**
      * A string seed to generate the icon deterministically
      * If not provided, a random seed will be generated
      */
-    seed?: string;
+    seed?: string
 
     /**
      * The scale factor for rendering the icon
      * @default 4
      */
-    scale?: number;
+    scale?: number
 
     /**
      * The foreground color of the icon
      * If not provided, a random color will be generated
      */
-    color?: string;
+    color?: string
 
     /**
      * The background color of the icon
      * If not provided, a random color will be generated
      */
-    bgcolor?: string;
+    bgcolor?: string
 
     /**
      * The spot color used for specific pattern elements
      * If not provided, a random color will be generated
      */
-    spotcolor?: string;
+    spotcolor?: string
   }
 
   /**
@@ -49,12 +49,12 @@ declare module 'opepen-standard' {
   export function renderIcon(
     opts: OpepenOptions | undefined,
     canvas: HTMLCanvasElement,
-  ): HTMLCanvasElement;
+  ): HTMLCanvasElement
 
   /**
    * Creates a new canvas element and renders an opepen icon to it
    * @param opts - Options for generating the icon
    * @returns A new canvas element with the rendered icon
    */
-  export function createIcon(opts: OpepenOptions | undefined): HTMLCanvasElement;
+  export function createIcon(opts: OpepenOptions | undefined): HTMLCanvasElement
 }

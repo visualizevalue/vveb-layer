@@ -1,14 +1,36 @@
 <template>
   <article class="prose">
-    <p class="lead">lorem ipsum dolor sit amet, consectetur adipiscing elit. integer nec odio. praesent libero. sed cursus ante dapibus diam.</p>
-    <p>nulla quis sem at nibh elementum imperdiet. duis sagittis ipsum. praesent mauris. fusce nec tellus sed augue semper porta.</p>
-    <p>aliquam erat volutpat. aenean quam. in scelerisque sem at dolor. maecenas mattis. sed convallis tristique sem.</p>
+    <p class="lead">
+      lorem ipsum dolor sit amet, consectetur adipiscing elit. integer nec odio. praesent
+      libero. sed cursus ante dapibus diam.
+    </p>
+    <p>
+      nulla quis sem at nibh elementum imperdiet. duis sagittis ipsum. praesent mauris. fusce
+      nec tellus sed augue semper porta.
+    </p>
+    <p>
+      aliquam erat volutpat. aenean quam. in scelerisque sem at dolor. maecenas mattis. sed
+      convallis tristique sem.
+    </p>
     <blockquote>
-      <p>curabitur sodales ligula in libero. sed dignissim lacinia nunc. curabitur tortor. pellentesque nibh.</p>
+      <p>
+        curabitur sodales ligula in libero. sed dignissim lacinia nunc. curabitur tortor.
+        pellentesque nibh.
+      </p>
     </blockquote>
-    <p>vestibulum lacinia arcu eget nulla. class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-    <p>integer nec odio. praesent libero. sed cursus ante dapibus diam. sed nisi. nulla quis sem at nibh elementum imperdiet.</p>
-    <p>it adds a new <code>prose</code> class that you can apply to any block of text:</p>
+    <p>
+      vestibulum lacinia arcu eget nulla. class aptent taciti sociosqu ad litora torquent per
+      conubia nostra, per inceptos himenaeos.
+    </p>
+    <p>
+      integer nec odio. praesent libero. sed cursus ante dapibus diam. sed nisi. nulla quis sem
+      at nibh elementum imperdiet.
+    </p>
+    <p>
+      it adds a new
+      <code>prose</code>
+      class that you can apply to any block of text:
+    </p>
     <pre><code class="language-html">&lt;article class="prose"&gt;
   &lt;h1&gt;lorem ipsum: a journey into placeholder text&lt;/h1&gt;
   &lt;p&gt;
@@ -21,10 +43,17 @@
   &lt;/p&gt;
 &lt;/article&gt;
   </code></pre>
-    <p>for more information, visit <a href="https://www.lipsum.com">this page</a>.</p>
+    <p>
+      for more information, visit
+      <a href="https://www.lipsum.com">this page</a>
+      .
+    </p>
     <hr />
     <h2>typography and readability</h2>
-    <p>typography plays a crucial role in readability, accessibility, and user experience. here are some key considerations:</p>
+    <p>
+      typography plays a crucial role in readability, accessibility, and user experience. here
+      are some key considerations:
+    </p>
     <ol>
       <li>font size and spacing should be carefully adjusted for comfort.</li>
       <li>contrast between text and background enhances readability.</li>
@@ -32,7 +61,9 @@
     </ol>
     <h3>improving readability</h3>
     <p>typography should be easy to understand and aesthetically pleasing.</p>
-    <blockquote><p>good typography enhances user experience and conveys information effectively.</p></blockquote>
+    <blockquote>
+      <p>good typography enhances user experience and conveys information effectively.</p>
+    </blockquote>
     <figure>
       <img src="https://placehold.co/600x400" alt="random image" />
       <figcaption>placeholder images can make layouts more realistic.</figcaption>
@@ -68,10 +99,24 @@
 }
 greet();</code></pre>
     <h3>Inline Code</h3>
-    <p>Use inline code like <code>&lt;span&gt;</code> elements or mention <code>console.log()</code> where necessary.</p>
-    <p>For further information, check out <a href="https://developer.mozilla.org">MDN Web Docs</a>.</p>
+    <p>
+      Use inline code like
+      <code>&lt;span&gt;</code>
+      elements or mention
+      <code>console.log()</code>
+      where necessary.
+    </p>
+    <p>
+      For further information, check out
+      <a href="https://developer.mozilla.org">MDN Web Docs</a>
+      .
+    </p>
     <h2>Conclusion</h2>
-    <p>Typography, readability, and structured content play a vital role in effective communication. By following best practices, we can enhance user experience and information delivery.</p>
+    <p>
+      Typography, readability, and structured content play a vital role in effective
+      communication. By following best practices, we can enhance user experience and
+      information delivery.
+    </p>
     <p>Adding a final sentence here ensures balance and smooth closure.</p>
   </article>
 </template>

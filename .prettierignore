@@ -1,0 +1,9 @@
+# Preserve manual formatting in CSS variable files
+**/assets/styles/variables/**/*.css
+
+# Standard ignores
+node_modules
+dist
+.nuxt
+.output
+coverage
