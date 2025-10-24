@@ -1,3 +1,7 @@
 export default defineNuxtConfig({
-  extends: ['..'],
+  extends: [
+    '..',
+    '../../theme',
+    '../../base',
+  ],
 })

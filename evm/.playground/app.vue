@@ -6,13 +6,13 @@
       <h2>Wallet Connection</h2>
       <Connect>
         <template #connected="{ address }">
-          <div class="connected-info">
-            <p>
-              Connected:
-              <Account :address="address" />
-            </p>
+          <p>
+            Connected:
+            <Account :address="address" />
+          </p>
+          <Actions>
             <Button @click="disconnect">Disconnect</Button>
-          </div>
+          </Actions>
         </template>
       </Connect>
     </Card>
@@ -34,25 +34,10 @@ const { disconnect } = useDisconnect()
 
 <style scoped>
 .playground {
-  max-width: 800px;
+  max-width: 50rem;
   margin: 0 auto;
   padding: var(--spacer);
   display: grid;
   gap: var(--spacer);
-}
-
-.connected-info {
-  display: grid;
-  gap: var(--size-4);
-}
-
-h1 {
-  font-size: var(--font-xl);
-  margin-bottom: var(--spacer);
-}
-
-h2 {
-  font-size: var(--font-lg);
-  margin-bottom: var(--size-4);
 }
 </style>

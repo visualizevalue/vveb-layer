@@ -1,11 +1,10 @@
 import { fileURLToPath } from 'url'
-import { dirname } from 'path'
+import { dirname, join } from 'path'
 
 const currentDir = dirname(fileURLToPath(import.meta.url))
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  extends: ['@visualizevalue/vveb-layer-base'],
   modules: ['@wagmi/vue/nuxt'],
 
   typescript: {
@@ -13,6 +12,16 @@ export default defineNuxtConfig({
   },
 
   ssr: process.env.NUXT_SSR !== 'false',
+
+  alias: {
+    '@base': '@visualizevalue/vveb-layer-base',
+    '@theme': '@visualizevalue/vveb-layer-theme',
+  },
+
+  css: [
+    '@theme/assets/theme.css',
+    '@base/assets/styles/index.css',
+  ],
 
   runtimeConfig: {
     public: {
