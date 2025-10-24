@@ -129,13 +129,22 @@ watchEffect(() => (open.value ? show() : hide()))
     max-height: calc(100dvh - var(--spacer) * 2);
   }
 
+  &.modal {
+    padding: var(--spacer-lg);
+
+    &:has(> h1:first-of-type) {
+      padding: var(--spacer);
+      padding-top: calc(var(--spacer) * 3);
+    }
+  }
+
   &.compat {
     transform: translate(-50%, -50%);
   }
 
   &::backdrop,
   + .overlay {
-    background: transparent;
+    background: var(--backdrop-background-color);
     backdrop-filter: none;
   }
 
@@ -151,7 +160,7 @@ watchEffect(() => (open.value ? show() : hide()))
 
     &::backdrop,
     + .overlay {
-      background: var(--dialog-background-color);
+      background: var(--backdrop-background-color);
       backdrop-filter: var(--blur);
     }
   }
@@ -179,11 +188,23 @@ watchEffect(() => (open.value ? show() : hide()))
     width: var(--spacer);
     height: var(--spacer);
     padding: 0;
-    z-index: var(--z-index-dialog);
+    z-index: 10;
 
     &:--highlight {
       outline: none;
     }
+  }
+
+  &.modal > .close {
+    top: 0;
+    right: 0;
+    height: calc(var(--spacer) * 2);
+    width: calc(var(--spacer) * 2);
+    border-left: var(--border);
+    border-bottom: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   > h1 {
@@ -194,11 +215,32 @@ watchEffect(() => (open.value ? show() : hide()))
     margin-bottom: var(--size-3);
   }
 
+  &.modal > h1:first-of-type {
+    width: 100%;
+    border-bottom: var(--border);
+    height: calc(var(--spacer) * 2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 0 0 var(--spacer);
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: var(--font-base);
+  }
+
   > .actions {
     margin-top: var(--spacer);
     display: flex;
     gap: var(--spacer);
     justify-content: flex-end;
+  }
+
+  &.modal .modal-footer {
+    margin: var(--spacer) calc(var(--spacer) * -1) calc(var(--spacer) * -1);
+    padding: var(--spacer);
+    justify-content: flex-end;
+    border-top: var(--border);
   }
 }
 

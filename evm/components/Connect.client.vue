@@ -8,6 +8,7 @@
 
   <Teleport to="body">
     <Modal v-if="showConnect" v-model:open="chooseModalOpen">
+      <h1>Connect Wallet</h1>
       <div class="wallet-options">
         <Button
           v-for="connector in shownConnectors"
@@ -83,7 +84,11 @@ onMounted(() => check())
 
 .choose-connector-button {
   img {
+    margin: -1rem 0 -1rem -0.4rem;
+    padding-right: 0.5rem;
     width: var(--size-5);
+    height: var(--size-5);
+    border-right: var(--border);
   }
 }
 </style>
