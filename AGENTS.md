@@ -222,7 +222,7 @@ export default defineNuxtConfig({
   extends: [
     '@visualizevalue/vveb-layer-evm',
     '@visualizevalue/vveb-layer-theme',
-    '@visualizevalue/vveb-layer-base'
+    '@visualizevalue/vveb-layer-base',
   ],
 })
 ```
