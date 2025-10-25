@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
-    <component ref="dialog" :is="tag" class="dialog" :class="classes">
-      <button v-if="xClose" class="close unstyled" :title="`Close ${title}` || 'Close Dialog'" @touchdown="open = false"
+    <component ref="dialog" :is="tag" :class="classes" @cancel.stop.prevent="open = false">
+      <button v-if="xClose" class="close unstyled" :title="`Close ${title || 'Dialog'}`" @touchdown="open = false"
         @click="open = false">
         <Icon type="close" />
       </button>
@@ -30,6 +30,7 @@ const debouncedOpen = ref(open.value)
 const tag = computed(() => (props.compat ? 'article' : 'dialog'))
 const classes = computed(() => {
   let obj = {
+    dialog: true,
     compat: props.compat,
   }
 
@@ -59,6 +60,7 @@ const show = () => {
     dialog.value?.showModal()
   }
 }
+
 const hide = () => {
   return new Promise((resolve) => {
     const keyFrame = new KeyframeEffect(
@@ -91,23 +93,6 @@ const onClickOutside = () => {
     open.value = false
   }
 }
-
-const handleCancel = (event) => {
-  event.preventDefault()
-  open.value = false
-}
-
-onMounted(() => {
-  if (!props.compat && dialog.value) {
-    dialog.value.addEventListener('cancel', handleCancel)
-  }
-})
-
-onBeforeUnmount(() => {
-  if (!props.compat && dialog.value) {
-    dialog.value.removeEventListener('cancel', handleCancel)
-  }
-})
 
 // Keep track of the open/hide state
 watchEffect(() => (open.value ? show() : hide()))
