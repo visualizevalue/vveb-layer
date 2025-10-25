@@ -1,6 +1,7 @@
 :root {
   --rem: 16px;
   --font-base: var(--rem);
+  --font-xs: calc(var(--font-base) * 0.69);
   --font-sm: calc(var(--font-base) * 0.8);
   --font-lg: calc(var(--font-base) * 1.2);
   --font-xl: calc(var(--font-base) * 1.4);
