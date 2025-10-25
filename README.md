@@ -210,14 +210,14 @@ Version bumping follows semantic versioning. Update the version in the layer's `
 
 ```vue
 <template>
-  <BaseButton @click="handleClick">
+  <Button @click="handleClick">
     Click me
-  </BaseButton>
+  </Button>
 
-  <BaseModal v-model:open="isOpen">
+  <Modal v-model:open="isOpen">
     <template #title>Modal Title</template>
     <p>Modal content</p>
-  </BaseModal>
+  </Modal>
 </template>
 ```
 
