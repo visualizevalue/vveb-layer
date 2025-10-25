@@ -12,7 +12,8 @@
       <Alert v-if="errorMessage" type="error">
         {{ errorMessage }}
       </Alert>
-      <template v-if="isConnecting">
+      <WalletConnectQR v-if="walletConnectUri" :uri="walletConnectUri" />
+      <template v-else-if="isConnecting">
         <Loading txt="Waiting for wallet confirmation..." spinner />
       </template>
       <div v-else class="wallet-options">
@@ -65,11 +66,24 @@ const shownConnectors = computed(() => {
 const chooseModalOpen = ref(false)
 const errorMessage = ref('')
 const isConnecting = ref(false)
+const walletConnectUri = ref('')
 
 const login = async (connector) => {
   // Clear any previous error message and set connecting state
   errorMessage.value = ''
   isConnecting.value = true
+  walletConnectUri.value = ''
+
+  // Listen for WalletConnect URI for custom QR rendering
+  const handleMessage = (event) => {
+    if (event.type === 'display_uri' && event.data) {
+      walletConnectUri.value = event.data
+    }
+  }
+
+  if (connector.id === 'walletConnect') {
+    connector.emitter.on('message', handleMessage)
+  }
 
   try {
     await connectAsync({ connector, chainId })
@@ -78,10 +92,12 @@ const login = async (connector) => {
     setTimeout(() => {
       chooseModalOpen.value = false
       isConnecting.value = false
+      walletConnectUri.value = ''
     }, 100)
   } catch (error) {
     // Reset connecting state
     isConnecting.value = false
+    walletConnectUri.value = ''
 
     // User rejected or cancelled the connection request
     if (error.message?.includes('User rejected') || error.message?.includes('rejected') || error.message?.includes('denied')) {
@@ -91,6 +107,11 @@ const login = async (connector) => {
       errorMessage.value = 'Failed to connect. Please try again.'
     }
     console.error('Wallet connection error:', error)
+  } finally {
+    // Cleanup WalletConnect listener
+    if (connector.id === 'walletConnect') {
+      connector.emitter.off('message', handleMessage)
+    }
   }
 }
 
@@ -99,6 +120,7 @@ watch(chooseModalOpen, (isOpen) => {
   if (!isOpen) {
     errorMessage.value = ''
     isConnecting.value = false
+    walletConnectUri.value = ''
   }
 })
 

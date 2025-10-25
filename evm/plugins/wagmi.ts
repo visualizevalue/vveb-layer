@@ -36,6 +36,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     connectors.push(
       walletConnect({
         projectId: nuxtApp.$config.public.walletConnectProjectId,
+        showQrModal: false, // Disable default QR modal for custom rendering
       }),
     )
 
