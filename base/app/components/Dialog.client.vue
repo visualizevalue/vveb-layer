@@ -25,6 +25,7 @@ const props = defineProps({
   },
   compat: Boolean,
 })
+const emit = defineEmits(['closed'])
 const open = defineModel('open', { required: true })
 const debouncedOpen = ref(open.value)
 const tag = computed(() => (props.compat ? 'article' : 'dialog'))
@@ -82,6 +83,7 @@ const hide = () => {
       } else {
         dialog.value?.close()
       }
+      emit('closed')
       resolve()
     }
     animation.play()

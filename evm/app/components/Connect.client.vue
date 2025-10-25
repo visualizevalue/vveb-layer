@@ -7,7 +7,7 @@
   </slot>
 
   <Teleport to="body">
-    <Modal v-if="showConnect" v-model:open="chooseModalOpen">
+    <Modal v-if="showConnect" v-model:open="chooseModalOpen" @closed="onModalClosed">
       <h1>Connect Wallet</h1>
       <Alert v-if="errorMessage" type="error">
         {{ errorMessage }}
@@ -138,15 +138,13 @@ const login = async (connector) => {
   }
 }
 
-// Clear error message and connecting state when modal closes
-watch(chooseModalOpen, (isOpen) => {
-  if (!isOpen) {
-    errorMessage.value = ''
-    isConnecting.value = false
-    walletConnectUri.value = ''
-    metaMaskUri.value = ''
-  }
-})
+// Clear error message and connecting state when modal has fully closed
+const onModalClosed = () => {
+  errorMessage.value = ''
+  isConnecting.value = false
+  walletConnectUri.value = ''
+  metaMaskUri.value = ''
+}
 
 const check = () =>
   isConnected.value ? emit('connected', { address: address.value }) : emit('disconnected')

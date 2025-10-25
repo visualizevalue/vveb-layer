@@ -6,6 +6,7 @@
     :compat="compat"
     :x-close="xClose"
     :click-outside="clickOutside"
+    @closed="emit('closed')"
   >
     <slot />
   </Dialog>
@@ -13,6 +14,7 @@
 
 <script setup>
 const open = defineModel('open', { required: true })
+const emit = defineEmits(['closed'])
 
 const props = defineProps({
   title: String,
