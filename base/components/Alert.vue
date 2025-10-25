@@ -49,6 +49,12 @@ const dismiss = () => {
     color: var(--alert-info-color);
   }
 
+  &.error {
+    border-color: var(--alert-error-border-color);
+    background-color: var(--alert-error-background-color);
+    color: var(--alert-error-color);
+  }
+
   :deep(> h1) {
     text-transform: uppercase;
     font-weight: bold;
