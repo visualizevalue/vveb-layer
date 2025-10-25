@@ -1,7 +1,7 @@
 <template>
   <slot :start="start" name="start"></slot>
 
-  <Modal :open="open" @close="cancel" :x-close="false" class="transaction-flow">
+  <Modal v-model:open="open" :x-close="false" class="transaction-flow">
     <slot name="before" />
 
     <h1 v-if="text.title[step]">{{ text.title[step] }}</h1>

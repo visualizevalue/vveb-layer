@@ -1,19 +1,8 @@
 <template>
   <Teleport to="body">
-    <component
-      ref="dialog"
-      :is="tag"
-      class="dialog"
-      :class="classes"
-      @cancel.stop.prevent="open = false"
-    >
-      <button
-        v-if="xClose"
-        class="close unstyled"
-        :title="`Close ${title}` || 'Close Dialog'"
-        @touchdown="open = false"
-        @click="open = false"
-      >
+    <component ref="dialog" :is="tag" class="dialog" :class="classes">
+      <button v-if="xClose" class="close unstyled" :title="`Close ${title}` || 'Close Dialog'" @touchdown="open = false"
+        @click="open = false">
         <Icon type="close" />
       </button>
 
@@ -103,6 +92,23 @@ const onClickOutside = () => {
   }
 }
 
+const handleCancel = (event) => {
+  event.preventDefault()
+  open.value = false
+}
+
+onMounted(() => {
+  if (!props.compat && dialog.value) {
+    dialog.value.addEventListener('cancel', handleCancel)
+  }
+})
+
+onBeforeUnmount(() => {
+  if (!props.compat && dialog.value) {
+    dialog.value.removeEventListener('cancel', handleCancel)
+  }
+})
+
 // Keep track of the open/hide state
 watchEffect(() => (open.value ? show() : hide()))
 </script>
@@ -135,6 +141,7 @@ watchEffect(() => (open.value ? show() : hide()))
     &:has(> h1:first-of-type) {
       padding: var(--spacer);
       padding-top: calc(var(--spacer) * 3);
+      font-size: var(--ui-font-size);
     }
   }
 
@@ -143,7 +150,7 @@ watchEffect(() => (open.value ? show() : hide()))
   }
 
   &::backdrop,
-  + .overlay {
+  +.overlay {
     background: var(--backdrop-background-color);
     backdrop-filter: none;
   }
@@ -159,7 +166,7 @@ watchEffect(() => (open.value ? show() : hide()))
     }
 
     &::backdrop,
-    + .overlay {
+    +.overlay {
       background: var(--backdrop-background-color);
       backdrop-filter: var(--blur);
     }
@@ -171,7 +178,7 @@ watchEffect(() => (open.value ? show() : hide()))
     left: 50%;
     z-index: var(--z-index-dialog);
 
-    + .overlay {
+    +.overlay {
       position: fixed;
       top: 0;
       left: 0;
@@ -181,7 +188,7 @@ watchEffect(() => (open.value ? show() : hide()))
     }
   }
 
-  > .close {
+  >.close {
     position: absolute;
     top: var(--spacer);
     right: var(--spacer);
@@ -195,7 +202,7 @@ watchEffect(() => (open.value ? show() : hide()))
     }
   }
 
-  &.modal > .close {
+  &.modal>.close {
     top: 0;
     right: 0;
     height: calc(var(--spacer) * 2);
@@ -207,15 +214,15 @@ watchEffect(() => (open.value ? show() : hide()))
     justify-content: center;
   }
 
-  > h1 {
+  >h1 {
     padding-right: var(--size-6);
     font-family: var(--ui-font-family);
-    font-size: var(--font-lg);
+    font-size: var(--ui-font-size);
     text-transform: var(--ui-text-transform);
     margin-bottom: var(--size-3);
   }
 
-  &.modal > h1:first-of-type {
+  &.modal>h1:first-of-type {
     width: 100%;
     border-bottom: var(--border);
     height: calc(var(--spacer) * 2);
@@ -226,10 +233,10 @@ watchEffect(() => (open.value ? show() : hide()))
     display: flex;
     align-items: center;
     margin: 0;
-    font-size: var(--font-base);
+    font-size: var(--ui-font-size);
   }
 
-  > .actions {
+  >.actions {
     margin-top: var(--spacer);
     display: flex;
     gap: var(--spacer);
@@ -256,6 +263,7 @@ body:has(.dialog.open) {
     opacity: 0;
     transform: translate(-50%, calc(-50% + var(--spacer)));
   }
+
   100% {
     opacity: 1;
     transform: translate(-50%, -50%);
