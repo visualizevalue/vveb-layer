@@ -89,11 +89,21 @@ a.button {
     border: 0;
     background: transparent;
     line-height: inherit;
-    color: var(--muted);
+    color: var(--color);
+    padding: 0;
 
     :deep(.icon) {
       align-self: center;
       height: 1em;
+      width: 1em;
+    }
+
+    &.muted {
+      color: var(--muted);
+
+      :deep(.icon) {
+        color: var(--muted);
+      }
     }
   }
 
@@ -133,8 +143,20 @@ a.button {
     }
 
     &.link {
-      background: var(--button-background-highlight);
+      background: transparent !important;
       color: var(--color);
+
+      > :deep(.icon) {
+        color: var(--gray-z-7);
+      }
+
+      &.muted {
+        color: var(--color);
+
+        > :deep(.icon) {
+          color: var(--gray-z-7);
+        }
+      }
     }
   }
 

@@ -22,6 +22,10 @@
             :alt="connector.name" />
           <span>{{ connector.name }}</span>
         </Button>
+        <Button to="https://ethereum.org/wallets/" target="_blank" class="link muted">
+          <Icon type="help-circle" />
+          <span>New to wallets?</span>
+        </Button>
       </div>
     </Modal>
   </Teleport>
@@ -124,5 +128,10 @@ onMounted(() => check())
     border-left: var(--border);
     padding-left: var(--spacer-sm);
   }
+}
+
+.link.muted {
+  justify-self: center;
+  font-size: var(--font-size-sm);
 }
 </style>
