@@ -9,18 +9,19 @@
   <Teleport to="body">
     <Modal v-if="showConnect" v-model:open="chooseModalOpen">
       <h1>Connect Wallet</h1>
-      <div class="wallet-options">
-        <Button
-          v-for="connector in shownConnectors"
-          :key="connector.uid"
-          @click="() => login(connector)"
-          class="choose-connector-button"
-        >
-          <img
-            v-if="ICONS[connector.name]"
-            :src="connector.icon || `${base}icons/wallets/${ICONS[connector.name]}`"
-            :alt="connector.name"
-          />
+      <Alert v-if="errorMessage" type="error">
+        {{ errorMessage }}
+      </Alert>
+      <template v-if="isConnecting">
+        <Loading />
+        <p>Waiting for wallet confirmation...</p>
+        <p>Check your wallet to approve the connection</p>
+      </template>
+      <div v-else class="wallet-options">
+        <Button v-for="connector in shownConnectors" :key="connector.uid" @click="() => login(connector)"
+          class="choose-connector-button">
+          <img v-if="ICONS[connector.name]" :src="connector.icon || `${base}icons/wallets/${ICONS[connector.name]}`"
+            :alt="connector.name" />
           {{ connector.name }}
         </Button>
       </div>
@@ -45,7 +46,7 @@ const emit = defineEmits(['connected', 'disconnected'])
 const base = useBaseURL()
 
 const chainId = useChainId()
-const { connectors, connect } = useConnect()
+const { connectors, connectAsync } = useConnect()
 const { address, isConnected } = useAccount()
 
 const showConnect = computed(() => !isConnected.value)
@@ -60,13 +61,44 @@ const shownConnectors = computed(() => {
 })
 
 const chooseModalOpen = ref(false)
-const login = async (connector) => {
-  connect({ connector, chainId })
+const errorMessage = ref('')
+const isConnecting = ref(false)
 
-  setTimeout(() => {
-    chooseModalOpen.value = false
-  }, 100)
+const login = async (connector) => {
+  // Clear any previous error message and set connecting state
+  errorMessage.value = ''
+  isConnecting.value = true
+
+  try {
+    await connectAsync({ connector, chainId })
+
+    // Connection successful, close modal
+    setTimeout(() => {
+      chooseModalOpen.value = false
+      isConnecting.value = false
+    }, 100)
+  } catch (error) {
+    // Reset connecting state
+    isConnecting.value = false
+
+    // User rejected or cancelled the connection request
+    if (error.message?.includes('User rejected') || error.message?.includes('rejected') || error.message?.includes('denied')) {
+      errorMessage.value = 'Connection cancelled. Please try again.'
+    } else {
+      // Other errors
+      errorMessage.value = 'Failed to connect. Please try again.'
+    }
+    console.error('Wallet connection error:', error)
+  }
 }
+
+// Clear error message and connecting state when modal closes
+watch(chooseModalOpen, (isOpen) => {
+  if (!isOpen) {
+    errorMessage.value = ''
+    isConnecting.value = false
+  }
+})
 
 const check = () =>
   isConnected.value ? emit('connected', { address: address.value }) : emit('disconnected')
