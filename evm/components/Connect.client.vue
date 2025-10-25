@@ -13,9 +13,7 @@
         {{ errorMessage }}
       </Alert>
       <template v-if="isConnecting">
-        <Loading />
-        <p>Waiting for wallet confirmation...</p>
-        <p>Check your wallet to approve the connection</p>
+        <Loading txt="Waiting for wallet confirmation..." />
       </template>
       <div v-else class="wallet-options">
         <Button v-for="connector in shownConnectors" :key="connector.uid" @click="() => login(connector)"
