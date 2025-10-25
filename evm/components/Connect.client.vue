@@ -20,7 +20,7 @@
           class="choose-connector-button">
           <img v-if="ICONS[connector.name]" :src="connector.icon || `${base}icons/wallets/${ICONS[connector.name]}`"
             :alt="connector.name" />
-          {{ connector.name }}
+          <span>{{ connector.name }}</span>
         </Button>
       </div>
     </Modal>
@@ -106,19 +106,23 @@ onMounted(() => check())
 
 <style scoped>
 .wallet-options {
-  display: flex;
+  display: grid;
   gap: var(--spacer);
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .choose-connector-button {
+  width: 100%;
+  justify-content: flex-start;
+
   img {
-    margin: -1rem 0 -1rem -0.4rem;
-    padding-right: 0.5rem;
+    margin: -1rem 0 -1rem -0.6rem;
     width: var(--size-5);
     height: var(--size-5);
-    border-right: var(--border);
+  }
+
+  span {
+    border-left: var(--border);
+    padding-left: var(--spacer-sm);
   }
 }
 </style>
