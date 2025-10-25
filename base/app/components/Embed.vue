@@ -26,7 +26,7 @@ async function fetchMediaType(url: string): Promise<string | null> {
     const contentType = response.headers.get('Content-Type')
 
     // Return the media type or null if unavailable
-    return contentType ? contentType.split(';')[0] : null
+    return (contentType ? contentType.split(';')[0] : null) as string | null
   } catch (error) {
     console.error(`Error fetching media type: ${error}`)
     return null

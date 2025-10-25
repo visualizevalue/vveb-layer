@@ -12,13 +12,11 @@ export default defineNuxtConfig({
     '@base': '@visualizevalue/vveb-layer-base',
   },
 
-  css: [join(currentDir, './assets/theme.css'), '@base/assets/styles/index.css'],
+  css: [join(currentDir, './app/assets/theme.css'), '@base/app/assets/styles/index.css'],
 
-  hooks: {
-    'vite:extendConfig': (config) => {
-      config.optimizeDeps ??= {}
-      config.optimizeDeps.include = config.optimizeDeps.include || []
-      config.optimizeDeps.include.push('@visualizevalue/vveb-layer-theme > vue-feather')
+  vite: {
+    optimizeDeps: {
+      include: ['@visualizevalue/vveb-layer-theme > vue-feather'],
     },
   },
 

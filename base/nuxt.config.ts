@@ -28,18 +28,18 @@ export default defineNuxtConfig({
     },
   },
 
-  css: [join(currentDir, './assets/styles/index.css')],
+  css: [join(currentDir, './app/assets/styles/index.css')],
 
   postcss: {
     plugins: {
       '@csstools/postcss-global-data': {
         files: [
-          join(currentDir, './assets/styles/custom-selectors.css'),
-          join(currentDir, './assets/styles/custom-media.css'),
+          join(currentDir, './app/assets/styles/custom-selectors.css'),
+          join(currentDir, './app/assets/styles/custom-media.css'),
         ],
       },
       'postcss-mixins': {
-        mixinsDir: join(currentDir, './assets/styles/mixins'),
+        mixinsDir: join(currentDir, './app/assets/styles/mixins'),
       },
       'postcss-nested': {},
       'postcss-custom-selectors': {},

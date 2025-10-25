@@ -19,8 +19,8 @@ export default defineNuxtConfig({
   },
 
   css: [
-    '@theme/assets/theme.css',
-    '@base/assets/styles/index.css',
+    '@theme/app/assets/theme.css',
+    '@base/app/assets/styles/index.css',
   ],
 
   runtimeConfig: {
