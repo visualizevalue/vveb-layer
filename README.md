@@ -59,7 +59,7 @@ Foundation layer providing headless/unstyled components and utilities.
 - CSS custom properties and PostCSS pipeline
 - Responsive design system with custom media queries
 
-**Tech Stack:** Vue 3, Nuxt 3, VueUse, Reka UI, Luxon
+**Tech Stack:** Vue 3, Nuxt 4, VueUse, Reka UI, Luxon
 
 [View Base Layer Documentation →](./base)
 
@@ -156,25 +156,32 @@ cd base && pnpm generate
 
 ### Workspace Structure
 
-The root `package.json` defines pnpm workspace overrides linking the layers:
+The root `package.json` defines pnpm workspace overrides linking the layers. All layers use Nuxt 4's app directory structure:
 
 ```
 vveb-layer/
 ├── base/           # @visualizevalue/vveb-layer-base
-│   ├── components/
-│   ├── composables/
-│   ├── utils/
-│   ├── assets/
+│   ├── app/
+│   │   ├── components/
+│   │   ├── composables/
+│   │   ├── utils/
+│   │   └── assets/
+│   ├── public/
 │   └── .playground/
 ├── theme/          # @visualizevalue/vveb-layer-theme
-│   ├── components/
-│   ├── assets/
+│   ├── app/
+│   │   ├── components/
+│   │   ├── assets/
+│   │   └── types/
+│   ├── public/
 │   └── .playground/
 └── evm/            # @visualizevalue/vveb-layer-evm
-    ├── components/
-    ├── composables/
-    ├── utils/
-    ├── plugins/
+    ├── app/
+    │   ├── components/
+    │   ├── composables/
+    │   ├── utils/
+    │   └── plugins/
+    ├── public/
     └── .playground/
 ```
 

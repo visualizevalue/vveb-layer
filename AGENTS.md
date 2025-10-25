@@ -91,10 +91,10 @@ The theme layer depends on the base layer. The evm layer is standalone but typic
 
 The foundation layer providing:
 
-- **Components** (`components/`): Headless UI components (Alert, Button, Calendar, Dialog, Dropdown, Image, Modal, Popover, Table, etc.)
-- **Composables** (`composables/`): Vue composables (`useBaseURL`, breakpoint utilities, time utilities)
-- **Utils** (`utils/`): Pure functions (date formatting, random utilities, string manipulation including `pluralize`, `cleanText`, `extractURLs`)
-- **Styles** (`assets/styles/`):
+- **Components** (`app/components/`): Headless UI components (Alert, Button, Calendar, Dialog, Dropdown, Image, Modal, Popover, Table, etc.)
+- **Composables** (`app/composables/`): Vue composables (`useBaseURL`, breakpoint utilities, time utilities)
+- **Utils** (`app/utils/`): Pure functions (date formatting, random utilities, string manipulation including `pluralize`, `cleanText`, `extractURLs`)
+- **Styles** (`app/assets/styles/`):
   - CSS custom properties in `variables/` (colors, borders, fonts, sizes, ui, z-index)
   - PostCSS mixins in `mixins/`
   - Global styles (normalize.css, base.css, forms.css, prose.css, cards.css, utils.css)
@@ -102,6 +102,7 @@ The foundation layer providing:
 
 **Key Configuration** (`base/nuxt.config.ts`):
 
+- Nuxt 4 app directory structure
 - Integrates `@vueuse/nuxt` and `reka-ui/nuxt` modules
 - PostCSS pipeline with mixins, nested CSS, custom selectors/media, preset-env
 - Auto-imports `DateTime` from Luxon
@@ -111,8 +112,9 @@ The foundation layer providing:
 
 Extends the base layer with VV-specific theming:
 
-- **Components** (`components/`): Theme-specific components (DefaultAvatar, Icon with Feather icons, ToggleDarkMode, VV logo)
-- **Styles** (`assets/`):
+- **Components** (`app/components/`): Theme-specific components (DefaultAvatar, Icon with Feather icons, ToggleDarkMode, VV logo)
+- **Types** (`app/types/`): TypeScript declarations (e.g., opepen-standard.d.ts)
+- **Styles** (`app/assets/`):
   - `light-dark.css`: Defines CSS variables for dark/light modes using a "z-index" color system (--gray-z-0 through --gray-z-10 flip between light/dark)
   - `variables.css`: Theme-specific color palette
   - `fonts.css`: DM Sans font loading
@@ -120,6 +122,7 @@ Extends the base layer with VV-specific theming:
 
 **Key Configuration** (`theme/nuxt.config.ts`):
 
+- Nuxt 4 app directory structure
 - Extends base layer
 - Creates `@base` alias pointing to `@visualizevalue/vveb-layer-base`
 - Imports theme CSS followed by base CSS (order matters)
@@ -159,17 +162,17 @@ export default defineNuxtConfig({
 
 Provides Web3/EVM integration using modern wagmi and viem:
 
-- **Components** (`components/`):
+- **Components** (`app/components/`):
   - `Connect.client.vue`: Wallet connection button with multi-wallet modal selector
   - `Account.client.vue`: Address display with ENS name resolution
   - `TransactionFlow.vue`: Guided transaction execution with chain checking, confirmation, waiting, and completion states
-- **Composables** (`composables/`):
+- **Composables** (`app/composables/`):
   - `useMainChainId()`: Returns the configured main chain ID
   - `useEnsureChainIdCheck()`: Checks and prompts chain switching if needed
   - `delay()`: Promise-based delay helper
-- **Utils** (`utils/`):
+- **Utils** (`app/utils/`):
   - `shortAddress()`: Ethereum address shortening utility
-- **Plugin** (`plugins/wagmi.ts`): Configures wagmi with:
+- **Plugin** (`app/plugins/wagmi.ts`): Configures wagmi with:
   - Wallet connectors (injected, MetaMask, Coinbase, WalletConnect)
   - Multi-RPC fallback transport
   - Cookie-based storage for SSR
@@ -177,6 +180,7 @@ Provides Web3/EVM integration using modern wagmi and viem:
 
 **Key Configuration** (`evm/nuxt.config.ts`):
 
+- Nuxt 4 app directory structure
 - Auto-imports common wagmi/viem functions (`readContract`, `writeContract`, `isAddress`, etc.)
 - Runtime config for chain ID, RPC endpoints, block explorer, WalletConnect project ID
 - Vite optimization for wagmi connectors
