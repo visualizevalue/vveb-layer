@@ -41,7 +41,8 @@ const dismiss = () => {
   border: var(--border);
   border-color: var(--alert-border-color);
   background-color: var(--alert-background-color);
-  color: var(--alert-color);
+  font-family: var(--ui-font-family);
+  text-transform: uppercase;
 
   &.info {
     border-color: var(--alert-info-border-color);
