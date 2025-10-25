@@ -122,6 +122,8 @@ watchEffect(() => (open.value ? show() : hide()))
 
   &.modal {
     padding: var(--spacer-lg);
+    display: grid;
+    gap: var(--spacer);
 
     &:has(> h1:first-of-type) {
       padding: var(--spacer);
