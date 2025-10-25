@@ -16,7 +16,7 @@
         "@tanstack/vue-query": "^5.62.3",
         "@visualizevalue/vveb-layer-base": "workspace:^",
         "@wagmi/vue": "^0.2.14",
-        "nuxt": "^3.17.0",
+        "nuxt": "^4.2.0",
         "qrcode": "^1.5.4",
         "viem": "^2.38.4"
     },

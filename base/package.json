@@ -20,7 +20,7 @@
         "@vueuse/components": "^13.5.0",
         "@vueuse/nuxt": "13.5.0",
         "luxon": "^3.5.0",
-        "nuxt": "^3.17.0",
+        "nuxt": "^4.2.0",
         "postcss-custom-media": "^11.0.5",
         "postcss-custom-selectors": "^8.0.4",
         "postcss-mixins": "^11.0.3",
