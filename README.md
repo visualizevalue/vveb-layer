@@ -253,8 +253,8 @@ Version bumping follows semantic versioning. Update the version in the layer's `
 
 ## Contributing
 
-This is a private monorepo. For questions or issues, contact the VV team.
+Contributions are welcome! Please feel free to submit issues and pull requests.
 
 ## License
 
-Private - All Rights Reserved
+MIT License - see [LICENSE](./LICENSE) for details
