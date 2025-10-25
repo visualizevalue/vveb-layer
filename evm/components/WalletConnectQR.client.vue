@@ -1,20 +1,14 @@
 <template>
-  <div class="qr-header">
-    <h2>Scan with your wallet</h2>
-    <p>Use your mobile wallet app to scan this QR code</p>
+  <p>Scan the code in your wallet application</p>
+  <div class="qr-frame">
+    <canvas ref="qrCanvas"></canvas>
   </div>
-  <div class="qr-container">
-    <img :src="uri" alt="">
-    <canvas ref="qrCanvas" class="qr-canvas"></canvas>
-  </div>
-  <div class="qr-footer">
-    <p class="uri-label">Or copy the connection URI:</p>
-    <div class="uri-display">
-      <code>{{ truncatedUri }}</code>
-      <Button @click="copyUri" class="copy-button" :class="{ copied: isCopied }">
-        <Icon :type="isCopied ? 'check' : 'copy'" />
-      </Button>
-    </div>
+  <p class="uri-label">Or copy the connection URI:</p>
+  <div class="uri-display">
+    <code>{{ uri }}</code>
+    <Button @click="copyUri" class="copy-button" :class="{ copied: isCopied }">
+      <Icon :type="isCopied ? 'checkmark' : 'copy'" />
+    </Button>
   </div>
 </template>
 
@@ -30,11 +24,6 @@ const props = defineProps({
 
 const qrCanvas = ref(null)
 const isCopied = ref(false)
-
-const truncatedUri = computed(() => {
-  if (props.uri.length <= 50) return props.uri
-  return `${props.uri.slice(0, 30)}...${props.uri.slice(-20)}`
-})
 
 const generateQR = async () => {
   if (!qrCanvas.value || !props.uri) return
@@ -74,81 +63,55 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.wallet-connect-qr {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacer);
-  padding: var(--spacer);
-}
-
-.qr-header {
+p {
   text-align: center;
-
-  h2 {
-    margin: 0 0 var(--spacer-xs);
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-  }
-
-  p {
-    margin: 0;
-    font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
-  }
+  @mixin ui-font;
+  color: var(--muted);
 }
 
-.qr-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: var(--spacer);
+.qr-frame {
   background: white;
-  border-radius: var(--border-radius);
+  padding: var(--spacer-sm);
+  max-width: 15rem;
+  max-height: 15rem;
   border: var(--border);
+  border-radius: var(--border-radius-sm, 0.5rem);
+  margin: 0 auto;
+
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
 }
 
-.qr-canvas {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-.qr-footer {
+.uri-display {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: var(--spacer-xs);
+  background: var(--color-bg-secondary);
+  border: var(--border);
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  padding: 0;
 
-  .uri-label {
-    margin: 0;
-    font-size: var(--font-size-sm);
-    color: var(--color-text-secondary);
+  code {
+    flex: 1;
+    font-size: var(--font-xs);
+    font-family: monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: var(--spacer-sm) var(--spacer);
+    color: var(--muted);
   }
 
-  .uri-display {
-    display: flex;
-    align-items: center;
-    gap: var(--spacer-xs);
-    padding: var(--spacer-sm);
-    background: var(--color-bg-secondary);
-    border: var(--border);
-    border-radius: var(--border-radius-sm);
+  .copy-button {
+    flex-shrink: 0;
+    padding: var(--spacer-xs);
+    min-width: auto;
+    margin: -1px;
 
-    code {
-      flex: 1;
-      font-size: var(--font-size-xs);
-      font-family: monospace;
-      word-break: break-all;
-      color: var(--color-text);
-    }
-
-    .copy-button {
-      flex-shrink: 0;
-      padding: var(--spacer-xs);
-      min-width: auto;
-
-      &.copied {
-        color: var(--color-success);
-      }
+    &.copied {
+      color: var(--color-success);
     }
   }
 }
