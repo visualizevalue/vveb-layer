@@ -13,6 +13,7 @@
         {{ errorMessage }}
       </Alert>
       <WalletConnectQR v-if="walletConnectUri" :uri="walletConnectUri" />
+      <MetaMaskQR v-else-if="metaMaskUri" :uri="metaMaskUri" />
       <template v-else-if="isConnecting">
         <Loading txt="Waiting for wallet confirmation..." spinner />
       </template>
@@ -81,21 +82,27 @@ const chooseModalOpen = ref(false)
 const errorMessage = ref('')
 const isConnecting = ref(false)
 const walletConnectUri = ref('')
+const metaMaskUri = ref('')
 
 const login = async (connector) => {
   // Clear any previous error message and set connecting state
   errorMessage.value = ''
   isConnecting.value = true
   walletConnectUri.value = ''
+  metaMaskUri.value = ''
 
-  // Listen for WalletConnect URI for custom QR rendering
+  // Listen for display_uri events for custom QR rendering
   const handleMessage = (event) => {
     if (event.type === 'display_uri' && event.data) {
-      walletConnectUri.value = event.data
+      if (connector.id === 'walletConnect') {
+        walletConnectUri.value = event.data
+      } else if (connector.id === 'metaMaskSDK') {
+        metaMaskUri.value = event.data
+      }
     }
   }
 
-  if (connector.id === 'walletConnect') {
+  if (connector.id === 'walletConnect' || connector.id === 'metaMaskSDK') {
     connector.emitter.on('message', handleMessage)
   }
 
@@ -107,11 +114,13 @@ const login = async (connector) => {
       chooseModalOpen.value = false
       isConnecting.value = false
       walletConnectUri.value = ''
+      metaMaskUri.value = ''
     }, 100)
   } catch (error) {
     // Reset connecting state
     isConnecting.value = false
     walletConnectUri.value = ''
+    metaMaskUri.value = ''
 
     // User rejected or cancelled the connection request
     if (error.message?.includes('User rejected') || error.message?.includes('rejected') || error.message?.includes('denied')) {
@@ -122,8 +131,8 @@ const login = async (connector) => {
     }
     console.error('Wallet connection error:', error)
   } finally {
-    // Cleanup WalletConnect listener
-    if (connector.id === 'walletConnect') {
+    // Cleanup listeners
+    if (connector.id === 'walletConnect' || connector.id === 'metaMaskSDK') {
       connector.emitter.off('message', handleMessage)
     }
   }
@@ -135,6 +144,7 @@ watch(chooseModalOpen, (isOpen) => {
     errorMessage.value = ''
     isConnecting.value = false
     walletConnectUri.value = ''
+    metaMaskUri.value = ''
   }
 })
 
