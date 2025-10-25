@@ -112,7 +112,6 @@ watchEffect(() => (open.value ? show() : hide()))
   height: min-content;
   opacity: 0;
   pointer-events: none;
-  align-content: center;
   max-height: 100dvh;
   container-type: inline-size;
 
@@ -199,6 +198,7 @@ watchEffect(() => (open.value ? show() : hide()))
     display: flex;
     align-items: center;
     justify-content: center;
+    background: var(--background);
   }
 
   >h1 {
@@ -221,6 +221,7 @@ watchEffect(() => (open.value ? show() : hide()))
     align-items: center;
     margin: 0;
     font-size: var(--ui-font-size);
+    background: var(--background);
   }
 
   >.actions {
