@@ -23,7 +23,7 @@ const props = defineProps({
 })
 
 const qrCanvas = ref(null)
-const isCopied = ref(false)
+const { copy, copied: isCopied } = useClipboard()
 
 const generateQR = async () => {
   if (!qrCanvas.value || !props.uri) return
@@ -42,17 +42,7 @@ const generateQR = async () => {
   }
 }
 
-const copyUri = async () => {
-  try {
-    await navigator.clipboard.writeText(props.uri)
-    isCopied.value = true
-    setTimeout(() => {
-      isCopied.value = false
-    }, 2000)
-  } catch (error) {
-    console.error('Failed to copy URI:', error)
-  }
-}
+const copyUri = () => copy(props.uri)
 
 // Generate QR code when URI changes
 watch(() => props.uri, generateQR, { immediate: true })
