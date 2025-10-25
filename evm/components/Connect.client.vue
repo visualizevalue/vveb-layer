@@ -44,6 +44,15 @@ const ICONS = {
   WalletConnect: 'walletconnect.svg',
 }
 
+// Priority for wallet ordering (lower number = higher priority)
+// WalletConnect should always be last (priority 20)
+// Coinbase Wallet should be below other defaults (priority 10)
+const PRIORITY = {
+  'WalletConnect': 20,
+  'Coinbase Wallet': 10,
+  // Other wallets default to 5 (higher priority than Coinbase but lower than WalletConnect)
+}
+
 const props = defineProps(['className'])
 const emit = defineEmits(['connected', 'disconnected'])
 const base = useBaseURL()
@@ -60,7 +69,12 @@ const shownConnectors = computed(() => {
 
   const filtered = unique.length > 1 ? unique.filter((c) => c.id !== 'injected') : unique
 
-  return filtered
+  // Sort by priority (lower number = higher priority = appears first)
+  return filtered.sort((a, b) => {
+    const priorityA = PRIORITY[a.name] ?? 5 // Default priority for unlisted wallets
+    const priorityB = PRIORITY[b.name] ?? 5
+    return priorityA - priorityB
+  })
 })
 
 const chooseModalOpen = ref(false)
