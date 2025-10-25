@@ -33,7 +33,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     }),
   ]
 
-  if (nuxtApp.$config.public.walletConnectProjectId)
+  if (import.meta.client && nuxtApp.$config.public.walletConnectProjectId)
     connectors.push(
       walletConnect({
         projectId: nuxtApp.$config.public.walletConnectProjectId,
