@@ -38,7 +38,8 @@ export default defineNuxtConfig({
   vite: {
     optimizeDeps: {
       include: [
-        '@visualizevalue/vveb-layer-evm > eventemitter3'
+        '@visualizevalue/vveb-layer-evm > viem',
+        '@visualizevalue/vveb-layer-evm > @wagmi/vue',
       ]
     }
   },
