@@ -137,6 +137,10 @@ watchEffect(() => (open.value ? show() : hide()))
     transform: translate(-50%, -50%);
   }
 
+  &:focus {
+    outline: none;
+  }
+
   &::backdrop,
   +.overlay {
     background: var(--backdrop-background-color);
