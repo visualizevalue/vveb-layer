@@ -38,8 +38,8 @@ export default defineNuxtConfig({
   vite: {
     optimizeDeps: {
       include: [
-        '@visualizevalue/vveb-layer-evm > cross-fetch',
-        '@visualizevalue/vveb-layer-evm > eventemitter2',
+        // '@visualizevalue/vveb-layer-evm > cross-fetch',
+        // '@visualizevalue/vveb-layer-evm > eventemitter2',
         '@visualizevalue/vveb-layer-evm > eventemitter3',
         '@visualizevalue/vveb-layer-evm > @metamask/sdk',
       ]
