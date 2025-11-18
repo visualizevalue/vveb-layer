@@ -40,6 +40,7 @@ export default defineNuxtConfig({
       include: [
         '@visualizevalue/vveb-layer-evm > viem',
         '@visualizevalue/vveb-layer-evm > @wagmi/vue',
+        '@visualizevalue/vveb-layer-evm > eventemitter3',
       ]
     }
   },
