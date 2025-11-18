@@ -38,23 +38,11 @@ export default defineNuxtConfig({
   vite: {
     optimizeDeps: {
       include: [
-        // '@visualizevalue/vveb-layer-evm > cross-fetch',
-        // '@visualizevalue/vveb-layer-evm > eventemitter2',
         '@visualizevalue/vveb-layer-evm > eventemitter3',
         '@visualizevalue/vveb-layer-evm > @metamask/sdk',
       ]
     }
   },
-
-  // hooks: {
-  //   'vite:extendConfig': (config) => {
-  //     config.optimizeDeps ??= {}
-  //     config.optimizeDeps.include = config.optimizeDeps.include || []
-  //     config.optimizeDeps.include.push('@visualizevalue/vveb-layer-evm > eventemitter3')
-  //     config.optimizeDeps.include.push('@visualizevalue/vveb-layer-evm > buffer/')
-  //     config.optimizeDeps.include.push('@visualizevalue/vveb-layer-evm > @wagmi/connectors')
-  //   },
-  // },
 
   nitro: {
     preset: 'node-cluster',
