@@ -5,10 +5,14 @@
   </button>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useDark, useToggle } from '@vueuse/core'
 
-const isDark = useDark()
+const props = defineProps<{ defaultMode?: 'light' | 'dark' }>()
+
+const isDark = useDark({
+  initialValue: props.defaultMode === 'dark' ? 'dark' : props.defaultMode === 'light' ? 'light' : undefined
+})
 const toggleDark = useToggle(isDark)
 
 watch(isDark, () => {
