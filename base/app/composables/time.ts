@@ -10,13 +10,13 @@ export const nowInSeconds = (): number => Math.floor(Date.now() / 1000)
 export const asUTCDate = (date: Date | null) =>
   date
     ? DateTime.utc(
-        date.getFullYear(),
-        date.getMonth() + 1,
-        date.getDate(),
-        date.getHours(),
-        date.getMinutes(),
-        date.getSeconds(),
-      )
+      date.getFullYear(),
+      date.getMonth() + 1,
+      date.getDate(),
+      date.getHours(),
+      date.getMinutes(),
+      date.getSeconds(),
+    )
     : null
 
 let nowInterval: NodeJS.Timeout
@@ -54,6 +54,7 @@ export const useCountDown = (s: Ref<Number | BigInt>, showSecondsWithin: number 
     seconds,
     minutes,
     hours,
+    days,
     str,
   }
 }
