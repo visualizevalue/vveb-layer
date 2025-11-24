@@ -111,10 +111,11 @@ watchEffect(() => (open.value ? show() : hide()))
   border: var(--border);
   border-radius: var(--border-radius);
   overscroll-behavior: contain;
-  height: min-content;
+  height: 0;
+  min-height: min-content;
+  max-height: 100dvh;
   opacity: 0;
   pointer-events: none;
-  max-height: 100dvh;
   container-type: inline-size;
 
   @media (--md) {
