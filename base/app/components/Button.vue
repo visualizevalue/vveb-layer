@@ -2,7 +2,9 @@
   <NuxtLink v-if="to" :to="to" :exact="exact" :target="target" class="button">
     <slot />
   </NuxtLink>
-  <button v-else><slot /></button>
+  <button v-else>
+    <slot />
+  </button>
 </template>
 
 <script setup>
@@ -42,7 +44,7 @@ a.button {
       color var(--speed);
   }
 
-  > span {
+  >span {
     display: flex;
     gap: var(--ui-padding-x);
     line-height: var(--ui-line-height);
@@ -73,6 +75,16 @@ a.button {
     &.small {
       padding: calc(var(--ui-padding-y) / 2);
     }
+  }
+
+  &.non-interactive,
+  &[disabled]:not([disabled='false']) {
+    pointer-events: none;
+  }
+
+  &[disabled]:not([disabled='false']) {
+    color: var(--muted);
+    opacity: 0.5;
   }
 
   &.small {
@@ -126,7 +138,7 @@ a.button {
 
   &.danger {
     border-color: var(--error);
-    color: var(--error);
+    color: var(--error) !important;
 
     :deep(.icon) {
       color: var(--error);
@@ -160,12 +172,5 @@ a.button {
     }
   }
 
-  &.non-interactive,
-  &[disabled]:not([disabled='false']) {
-    pointer-events: none;
-  }
-  &[disabled]:not([disabled='false']) {
-    color: var(--muted);
-  }
 }
 </style>
