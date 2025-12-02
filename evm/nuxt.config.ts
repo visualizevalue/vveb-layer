@@ -38,8 +38,9 @@ export default defineNuxtConfig({
   vite: {
     optimizeDeps: {
       include: [
-        '@visualizevalue/vveb-layer-evm > eventemitter3',
         '@visualizevalue/vveb-layer-evm > @metamask/sdk',
+        '@visualizevalue/vveb-layer-evm > eventemitter3',
+        '@visualizevalue/vveb-layer-evm > qrcode',
       ]
     }
   },
