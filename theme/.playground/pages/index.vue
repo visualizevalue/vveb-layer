@@ -2,6 +2,9 @@
   <article>
     <h1>Hello VV Theme</h1>
 
+    <Button>Hi Button</Button>
+    <Button class="primary">Primary Button</Button>
+
     <Calendar v-model="date" :is-date-unavailable="isDateUnavailable" />
 
     <span>{{ date }}</span>
@@ -11,11 +14,7 @@
     <div class="light">
       <input type="text" />
 
-      <Calendar
-        v-model="date"
-        :is-date-unavailable="isDateUnavailable"
-        :highlighted="['2025-06-20']"
-      />
+      <Calendar v-model="date" :is-date-unavailable="isDateUnavailable" :highlighted="['2025-06-20']" />
     </div>
 
     <hr />

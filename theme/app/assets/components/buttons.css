@@ -1,0 +1,32 @@
+button,
+a.button {
+  --button-primary-background: var(--gray-z-10);
+  --button-primary-border-color: var(--gray-z-8);
+  --button-primary-color: var(--gray-z-0);
+
+  --button-primary-background-highlight: var(--gray-z-8);
+  --button-primary-border-color-highlight: var(--gray-z-6);
+  --button-primary-color-highlight: var(--gray-z-0);
+
+  &.primary {
+    background: var(--button-primary-background) !important;
+    border-color: var(--button-primary-border-color) !important;
+    color: var(--button-primary-color) !important;
+
+    > .icon {
+      color: var(--button-primary-color) !important;
+    }
+
+    &:--highlight {
+      background: var(--button-primary-background-highlight) !important;
+      border-color: var(--button-primary-background-highlight) !important;
+
+      color: var(--button-primary-color-highlight) !important;
+
+      > :deep(.icon) {
+        color: var(--button-icon-color-highlight) !important;
+      }
+    }
+  }
+
+}
